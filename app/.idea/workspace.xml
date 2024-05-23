@@ -1,0 +1,318 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="NONE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="b3747638-8cc5-476b-b4c6-01a95485f6ec" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/sofascore/minisofa/data/remote/ApiService.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/sofascore/minisofa/data/remote/AuthInterceptor.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/sofascore/minisofa/data/remote/Network.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/sofascore/minisofa/data/remote/Result.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/sofascore/minisofa/util/NetworkExtension.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/res/layout/activity_main.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/res/navigation/mobile_navigation.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AndroidComponents/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AndroidComponents/README.MD" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AndroidComponents/build.gradle.kts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AndroidComponents/proguard-rules.pro" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AndroidComponents/src/androidTest/java/com/sofascore/androidcomponents/ExampleInstrumentedTest.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AndroidComponents/src/main/AndroidManifest.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AndroidComponents/src/main/res/drawable/ic_launcher_background.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AndroidComponents/src/main/res/drawable/ic_launcher_foreground.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AndroidComponents/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AndroidComponents/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AndroidComponents/src/main/res/mipmap-hdpi/ic_launcher.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AndroidComponents/src/main/res/mipmap-hdpi/ic_launcher_round.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AndroidComponents/src/main/res/mipmap-mdpi/ic_launcher.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AndroidComponents/src/main/res/mipmap-mdpi/ic_launcher_round.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AndroidComponents/src/main/res/mipmap-xhdpi/ic_launcher.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AndroidComponents/src/main/res/mipmap-xhdpi/ic_launcher_round.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AndroidComponents/src/main/res/mipmap-xxhdpi/ic_launcher.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AndroidComponents/src/main/res/mipmap-xxhdpi/ic_launcher_round.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AndroidComponents/src/main/res/mipmap-xxxhdpi/ic_launcher.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AndroidComponents/src/main/res/mipmap-xxxhdpi/ic_launcher_round.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AndroidComponents/src/main/res/values-night/themes.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AndroidComponents/src/main/res/values/colors.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AndroidComponents/src/main/res/values/strings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AndroidComponents/src/main/res/values/themes.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AndroidComponents/src/test/java/com/sofascore/androidcomponents/ExampleUnitTest.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../BackgroundTasks/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../BackgroundTasks/README.MD" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../BackgroundTasks/build.gradle.kts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../BackgroundTasks/proguard-rules.pro" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../BackgroundTasks/src/androidTest/java/com/sofascore/backgroundtasks/ExampleInstrumentedTest.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../BackgroundTasks/src/main/AndroidManifest.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../BackgroundTasks/src/main/res/drawable/ic_launcher_background.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../BackgroundTasks/src/main/res/drawable/ic_launcher_foreground.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../BackgroundTasks/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../BackgroundTasks/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../BackgroundTasks/src/main/res/mipmap-hdpi/ic_launcher.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../BackgroundTasks/src/main/res/mipmap-hdpi/ic_launcher_round.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../BackgroundTasks/src/main/res/mipmap-mdpi/ic_launcher.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../BackgroundTasks/src/main/res/mipmap-mdpi/ic_launcher_round.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../BackgroundTasks/src/main/res/mipmap-xhdpi/ic_launcher.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../BackgroundTasks/src/main/res/mipmap-xhdpi/ic_launcher_round.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../BackgroundTasks/src/main/res/mipmap-xxhdpi/ic_launcher.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../BackgroundTasks/src/main/res/mipmap-xxhdpi/ic_launcher_round.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../BackgroundTasks/src/main/res/mipmap-xxxhdpi/ic_launcher.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../BackgroundTasks/src/main/res/mipmap-xxxhdpi/ic_launcher_round.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../BackgroundTasks/src/main/res/values-night/themes.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../BackgroundTasks/src/main/res/values/colors.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../BackgroundTasks/src/main/res/values/strings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../BackgroundTasks/src/main/res/values/themes.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../BackgroundTasks/src/test/java/com/sofascore/backgroundtasks/ExampleUnitTest.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Database/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Database/README.MD" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Database/build.gradle.kts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Database/proguard-rules.pro" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Database/src/androidTest/java/com/sofascore/database/ExampleInstrumentedTest.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Database/src/main/AndroidManifest.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Database/src/main/res/drawable/ic_launcher_background.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Database/src/main/res/drawable/ic_launcher_foreground.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Database/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Database/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Database/src/main/res/mipmap-hdpi/ic_launcher.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Database/src/main/res/mipmap-hdpi/ic_launcher_round.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Database/src/main/res/mipmap-mdpi/ic_launcher.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Database/src/main/res/mipmap-mdpi/ic_launcher_round.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Database/src/main/res/mipmap-xhdpi/ic_launcher.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Database/src/main/res/mipmap-xhdpi/ic_launcher_round.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Database/src/main/res/mipmap-xxhdpi/ic_launcher.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Database/src/main/res/mipmap-xxhdpi/ic_launcher_round.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Database/src/main/res/mipmap-xxxhdpi/ic_launcher.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Database/src/main/res/mipmap-xxxhdpi/ic_launcher_round.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Database/src/main/res/values-night/themes.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Database/src/main/res/values/colors.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Database/src/main/res/values/strings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Database/src/main/res/values/themes.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Database/src/test/java/com/sofascore/database/ExampleUnitTest.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Flow/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Flow/README.MD" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Flow/build.gradle.kts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Flow/proguard-rules.pro" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Flow/src/androidTest/java/com/sofascore/flow/ExampleInstrumentedTest.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Flow/src/main/AndroidManifest.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Flow/src/main/res/drawable/ic_launcher_background.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Flow/src/main/res/drawable/ic_launcher_foreground.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Flow/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Flow/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Flow/src/main/res/mipmap-hdpi/ic_launcher.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Flow/src/main/res/mipmap-hdpi/ic_launcher_round.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Flow/src/main/res/mipmap-mdpi/ic_launcher.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Flow/src/main/res/mipmap-mdpi/ic_launcher_round.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Flow/src/main/res/mipmap-xhdpi/ic_launcher.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Flow/src/main/res/mipmap-xhdpi/ic_launcher_round.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Flow/src/main/res/mipmap-xxhdpi/ic_launcher.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Flow/src/main/res/mipmap-xxhdpi/ic_launcher_round.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Flow/src/main/res/mipmap-xxxhdpi/ic_launcher.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Flow/src/main/res/mipmap-xxxhdpi/ic_launcher_round.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Flow/src/main/res/values-night/themes.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Flow/src/main/res/values/colors.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Flow/src/main/res/values/strings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Flow/src/main/res/values/themes.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Flow/src/test/java/com/sofascore/flow/ExampleUnitTest.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../LiveData/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../LiveData/README.MD" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../LiveData/build.gradle.kts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../LiveData/proguard-rules.pro" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../LiveData/src/androidTest/java/com/sofascore/livedata/ExampleInstrumentedTest.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../LiveData/src/main/AndroidManifest.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../LiveData/src/main/res/drawable/ic_launcher_background.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../LiveData/src/main/res/drawable/ic_launcher_foreground.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../LiveData/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../LiveData/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../LiveData/src/main/res/mipmap-hdpi/ic_launcher.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../LiveData/src/main/res/mipmap-hdpi/ic_launcher_round.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../LiveData/src/main/res/mipmap-mdpi/ic_launcher.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../LiveData/src/main/res/mipmap-mdpi/ic_launcher_round.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../LiveData/src/main/res/mipmap-xhdpi/ic_launcher.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../LiveData/src/main/res/mipmap-xhdpi/ic_launcher_round.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../LiveData/src/main/res/mipmap-xxhdpi/ic_launcher.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../LiveData/src/main/res/mipmap-xxhdpi/ic_launcher_round.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../LiveData/src/main/res/mipmap-xxxhdpi/ic_launcher.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../LiveData/src/main/res/mipmap-xxxhdpi/ic_launcher_round.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../LiveData/src/main/res/values-night/themes.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../LiveData/src/main/res/values/colors.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../LiveData/src/main/res/values/strings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../LiveData/src/main/res/values/themes.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../LiveData/src/test/java/com/sofascore/livedata/ExampleUnitTest.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../LocalDataStorage/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../LocalDataStorage/README.MD" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../LocalDataStorage/build.gradle.kts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../LocalDataStorage/proguard-rules.pro" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../LocalDataStorage/src/androidTest/java/com/sofascore/localdatastorage/ExampleInstrumentedTest.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../LocalDataStorage/src/main/AndroidManifest.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../LocalDataStorage/src/main/res/drawable/ic_launcher_background.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../LocalDataStorage/src/main/res/drawable/ic_launcher_foreground.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../LocalDataStorage/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../LocalDataStorage/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../LocalDataStorage/src/main/res/mipmap-hdpi/ic_launcher.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../LocalDataStorage/src/main/res/mipmap-hdpi/ic_launcher_round.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../LocalDataStorage/src/main/res/mipmap-mdpi/ic_launcher.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../LocalDataStorage/src/main/res/mipmap-mdpi/ic_launcher_round.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../LocalDataStorage/src/main/res/mipmap-xhdpi/ic_launcher.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../LocalDataStorage/src/main/res/mipmap-xhdpi/ic_launcher_round.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../LocalDataStorage/src/main/res/mipmap-xxhdpi/ic_launcher.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../LocalDataStorage/src/main/res/mipmap-xxhdpi/ic_launcher_round.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../LocalDataStorage/src/main/res/mipmap-xxxhdpi/ic_launcher.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../LocalDataStorage/src/main/res/mipmap-xxxhdpi/ic_launcher_round.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../LocalDataStorage/src/main/res/values-night/themes.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../LocalDataStorage/src/main/res/values/colors.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../LocalDataStorage/src/main/res/values/strings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../LocalDataStorage/src/main/res/values/themes.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../LocalDataStorage/src/test/java/com/sofascore/localdatastorage/ExampleUnitTest.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Networking/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Networking/README.MD" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Networking/build.gradle.kts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Networking/proguard-rules.pro" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Networking/src/androidTest/java/com/sofascore/networking/ExampleInstrumentedTest.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Networking/src/main/AndroidManifest.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Networking/src/main/assets/cities500.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Networking/src/main/java/com/sofascore/networking/MainActivity.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Networking/src/main/java/com/sofascore/networking/data/local/WeatherDatabase.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Networking/src/main/java/com/sofascore/networking/data/local/dao/WeatherDao.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Networking/src/main/java/com/sofascore/networking/data/local/entity/WeatherInfo.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Networking/src/main/java/com/sofascore/networking/data/remote/ApiService.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Networking/src/main/java/com/sofascore/networking/data/remote/AuthInterceptor.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Networking/src/main/java/com/sofascore/networking/data/remote/Network.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Networking/src/main/java/com/sofascore/networking/data/remote/Result.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Networking/src/main/java/com/sofascore/networking/data/repository/RepoResource.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Networking/src/main/java/com/sofascore/networking/data/repository/Resource.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Networking/src/main/java/com/sofascore/networking/data/repository/WeatherRepository.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Networking/src/main/java/com/sofascore/networking/data/weather_models/WeatherResponse.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Networking/src/main/java/com/sofascore/networking/ui/cities/CitiesFragment.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Networking/src/main/java/com/sofascore/networking/ui/cities/CitiesViewModel.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Networking/src/main/java/com/sofascore/networking/ui/search/SearchFragment.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Networking/src/main/java/com/sofascore/networking/ui/search/SearchViewModel.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Networking/src/main/java/com/sofascore/networking/ui/search/adapter/CitySearchAdapter.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Networking/src/main/java/com/sofascore/networking/ui/search/adapter/WeatherInfoAdapter.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Networking/src/main/java/com/sofascore/networking/ui/settings/SettingsFragment.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Networking/src/main/java/com/sofascore/networking/ui/settings/SettingsViewModel.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Networking/src/main/java/com/sofascore/networking/util/LocationFlow.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Networking/src/main/java/com/sofascore/networking/util/NetworkExtensions.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Networking/src/main/res/drawable/ic_dashboard_black_24dp.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Networking/src/main/res/drawable/ic_favourite.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Networking/src/main/res/drawable/ic_favourite_border.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Networking/src/main/res/drawable/ic_home_black_24dp.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Networking/src/main/res/drawable/ic_launcher_background.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Networking/src/main/res/drawable/ic_launcher_foreground.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Networking/src/main/res/drawable/ic_notifications_black_24dp.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Networking/src/main/res/drawable/ic_search.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Networking/src/main/res/drawable/ic_settings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Networking/src/main/res/drawable/ic_star.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Networking/src/main/res/drawable/roundend_background.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Networking/src/main/res/drawable/weather_clouds.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Networking/src/main/res/drawable/weather_default.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Networking/src/main/res/drawable/weather_rain.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Networking/src/main/res/drawable/weather_snow.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Networking/src/main/res/drawable/weather_sunny.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Networking/src/main/res/layout/activity_main.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Networking/src/main/res/layout/fragment_cities.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Networking/src/main/res/layout/fragment_search.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Networking/src/main/res/layout/fragment_settings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Networking/src/main/res/layout/header_item.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Networking/src/main/res/layout/weather_item.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Networking/src/main/res/menu/bottom_nav_menu.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Networking/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Networking/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Networking/src/main/res/mipmap-hdpi/ic_launcher.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Networking/src/main/res/mipmap-hdpi/ic_launcher_round.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Networking/src/main/res/mipmap-mdpi/ic_launcher.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Networking/src/main/res/mipmap-mdpi/ic_launcher_round.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Networking/src/main/res/mipmap-xhdpi/ic_launcher.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Networking/src/main/res/mipmap-xhdpi/ic_launcher_round.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Networking/src/main/res/mipmap-xxhdpi/ic_launcher.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Networking/src/main/res/mipmap-xxhdpi/ic_launcher_round.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Networking/src/main/res/mipmap-xxxhdpi/ic_launcher.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Networking/src/main/res/mipmap-xxxhdpi/ic_launcher_round.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Networking/src/main/res/navigation/mobile_navigation.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Networking/src/main/res/values-night/themes.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Networking/src/main/res/values/arrays.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Networking/src/main/res/values/attrs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Networking/src/main/res/values/colors.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Networking/src/main/res/values/dimens.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Networking/src/main/res/values/strings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Networking/src/main/res/values/styles.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Networking/src/main/res/values/themes.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Networking/src/main/res/xml/preferences.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Networking/src/test/java/com/sofascore/networking/ExampleUnitTest.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ViewModel/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ViewModel/README.MD" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ViewModel/build.gradle.kts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ViewModel/mvvm_architecture.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ViewModel/proguard-rules.pro" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ViewModel/src/androidTest/java/com/sofascore/viewmodel/ExampleInstrumentedTest.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ViewModel/src/main/AndroidManifest.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ViewModel/src/main/java/com/sofascore/viewmodel/MainActivity.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ViewModel/src/main/res/drawable/ic_launcher_background.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ViewModel/src/main/res/drawable/ic_launcher_foreground.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ViewModel/src/main/res/layout/activity_main.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ViewModel/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ViewModel/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ViewModel/src/main/res/mipmap-hdpi/ic_launcher.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ViewModel/src/main/res/mipmap-hdpi/ic_launcher_round.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ViewModel/src/main/res/mipmap-mdpi/ic_launcher.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ViewModel/src/main/res/mipmap-mdpi/ic_launcher_round.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ViewModel/src/main/res/mipmap-xhdpi/ic_launcher.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ViewModel/src/main/res/mipmap-xhdpi/ic_launcher_round.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ViewModel/src/main/res/mipmap-xxhdpi/ic_launcher.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ViewModel/src/main/res/mipmap-xxhdpi/ic_launcher_round.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ViewModel/src/main/res/mipmap-xxxhdpi/ic_launcher.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ViewModel/src/main/res/mipmap-xxxhdpi/ic_launcher_round.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ViewModel/src/main/res/values-night/themes.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ViewModel/src/main/res/values/colors.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ViewModel/src/main/res/values/strings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ViewModel/src/main/res/values/themes.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ViewModel/src/test/java/com/sofascore/viewmodel/ExampleUnitTest.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ViewSystem/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ViewSystem/README.MD" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ViewSystem/build.gradle.kts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ViewSystem/consumer-rules.pro" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ViewSystem/proguard-rules.pro" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ViewSystem/src/androidTest/java/com/sofascore/view_system/ExampleInstrumentedTest.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ViewSystem/src/main/AndroidManifest.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ViewSystem/src/test/java/com/sofascore/view_system/ExampleUnitTest.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle.kts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/res/values/colors.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/res/values/colors.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../gradle/libs.versions.toml" beforeDir="false" afterPath="$PROJECT_DIR$/../gradle/libs.versions.toml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../settings.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/../settings.gradle.kts" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ClangdSettings">
+    <option name="formatViaClangd" value="false" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="ProjectId" id="2grq9y4kUNVpb44kk0Nqv7pczp4" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.cidr.known.project.marker": "true",
+    "android.gradle.sync.needed": "true",
+    "cf.first.check.clang-format": "false",
+    "cidr.known.project.marker": "true",
+    "last_opened_file_path": "C:/Users/mkves/AndroidStudioProjects/MiniSofa"
+  }
+}]]></component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="b3747638-8cc5-476b-b4c6-01a95485f6ec" name="Changes" comment="" />
+      <created>1716465896874</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1716465896874</updated>
+    </task>
+    <servers />
+  </component>
+</project>

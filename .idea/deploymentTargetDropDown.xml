@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="deploymentTargetDropDown">
+    <value>
+      <entry key="AndroidComponents">
+        <State />
+      </entry>
+      <entry key="BackgroundTasks">
+        <State />
+      </entry>
+      <entry key="Database">
+        <State />
+      </entry>
+      <entry key="Flow">
+        <State />
+      </entry>
+      <entry key="LiveData">
+        <State />
+      </entry>
+      <entry key="LocalDataStorage">
+        <State />
+      </entry>
+      <entry key="Networking">
+        <State />
+      </entry>
+      <entry key="ViewModel">
+        <State>
+          <targetSelectedWithDropDown>
+            <Target>
+              <type value="QUICK_BOOT_TARGET" />
+              <deviceKey>
+                <Key>
+                  <type value="VIRTUAL_DEVICE_PATH" />
+                  <value value="C:\Users\mkves\.android\avd\Pixel_3a_API_30.avd" />
+                </Key>
+              </deviceKey>
+            </Target>
+          </targetSelectedWithDropDown>
+          <timeTargetWasSelectedWithDropDown value="2024-04-08T10:55:54.229734Z" />
+        </State>
+      </entry>
+      <entry key="ViewSystem">
+        <State />
+      </entry>
+      <entry key="app">
+        <State />
+      </entry>
+      <entry key="minisofa">
+        <State />
+      </entry>
+    </value>
+  </component>
+</project>
