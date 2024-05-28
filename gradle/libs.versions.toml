@@ -27,6 +27,11 @@ preference = "1.2.0"
 lifecycle-runtime-ktx = "2.8.0"
 activity-compose = "1.9.0"
 compose-bom = "2023.08.00"
+pagingCommonAndroid = "3.3.0"
+databindingCommon = "8.4.1"
+glide = "4.12.0"
+pagingRuntimeKtx = "3.3.0"
+scrollDatePicker = "0.0.1"
 
 [libraries]
 core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "core-ktx" }
@@ -42,6 +47,7 @@ androidx-navigation-ui-ktx = { group = "androidx.navigation", name = "navigation
 room-runtime = { group = "androidx.room", name = "room-runtime", version.ref = "room" }
 room-compiler = { group = "androidx.room", name = "room-compiler", version.ref = "room" }
 room-ktx = { group = "androidx.room", name = "room-ktx", version.ref = "room" }
+room-paging = { module = "androidx.room:room-paging", version.ref = "room" }
 lifecycle-livedata-ktx = { group = "androidx.lifecycle", name = "lifecycle-livedata-ktx", version.ref = "lifecycle-livedata-ktx" }
 lifecycle-viewmodel-ktx = { group = "androidx.lifecycle", name = "lifecycle-viewmodel-ktx", version.ref = "lifecycle-viewmodel-ktx" }
 retrofit-client = { group = "com.squareup.retrofit2", name = "retrofit", version.ref = "retrofitVersion" }
@@ -64,6 +70,11 @@ avatarview-coil = { group = "io.getstream", name = "avatarview-coil", version.re
 hilt-android = { group = "com.google.dagger", name = "hilt-android", version.ref = "hilt" }
 hilt-compiler = { group = "com.google.dagger", name = "hilt-compiler", version.ref = "hilt" }
 roomKsp = { group = "androidx.room", name = "room-compiler", version.ref = "room" }
+androidx-paging-common-android = { group = "androidx.paging", name = "paging-common-android", version.ref = "pagingCommonAndroid" }
+androidx-databinding-common = { group = "androidx.databinding", name = "databinding-common", version.ref = "databindingCommon" }
+glide = { module = "com.github.bumptech.glide:glide", version.ref = "glide" }
+glide-compiler = { module = "com.github.bumptech.glide:compiler", version.ref = "glide" }
+androidx-paging-runtime-ktx = { group = "androidx.paging", name = "paging-runtime-ktx", version.ref = "pagingRuntimeKtx" }
 
 [plugins]
 androidApplication = { id = "com.android.application", version.ref = "agp" }

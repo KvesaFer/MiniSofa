@@ -1,4 +1,4 @@
-package com.sofascore.minisofa.util
+package com.sofascore.minisofa.utils
 
 import retrofit2.HttpException
 import retrofit2.Response

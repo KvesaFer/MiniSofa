@@ -1,3 +1,5 @@
+import org.jetbrains.kotlin.storage.CacheResetOnProcessCanceled.enabled
+
 @Suppress("DSL_SCOPE_VIOLATION") // TODO: Remove once KTIJ-19369 is fixed
 plugins {
     alias(libs.plugins.androidApplication)
@@ -33,6 +35,7 @@ android {
     }
     buildFeatures {
         viewBinding = true
+        dataBinding = true
     }
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_1_8
@@ -59,6 +62,10 @@ dependencies {
     implementation(libs.play.services.location)
     implementation(libs.room.ktx)
     implementation(libs.room.runtime)
+    implementation(libs.room.paging)
+    implementation(libs.androidx.paging.common.android)
+    implementation(libs.androidx.databinding.common)
+    implementation(libs.androidx.paging.runtime.ktx)
     ksp(libs.room.compiler)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.test.ext.junit)
@@ -68,6 +75,8 @@ dependencies {
     implementation(libs.avatarview.coil)
     implementation(libs.hilt.android)
     kapt(libs.hilt.compiler)
+    implementation(libs.glide)
+    kapt(libs.glide.compiler)
 }
 
 kapt {

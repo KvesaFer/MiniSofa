@@ -5,21 +5,21 @@
     android:id="@+id/mobile_navigation"
     app:startDestination="@+id/navigation_search">
 
-    <fragment
-        android:id="@+id/navigation_search"
-        android:name="com.sofascore.networking.ui.search.SearchFragment"
-        android:label="@string/title_search"
-        tools:layout="@layout/fragment_search" />
+<!--    <fragment-->
+<!--        android:id="@+id/navigation_search"-->
+<!--        android:name="com.sofascore.networking.ui.search.SearchFragment"-->
+<!--        android:label="@string/title_search"-->
+<!--        tools:layout="@layout/fragment_search" />-->
 
-    <fragment
-        android:id="@+id/navigation_cities"
-        android:name="com.sofascore.networking.ui.cities.CitiesFragment"
-        android:label="@string/title_cities"
-        tools:layout="@layout/fragment_cities" />
+<!--    <fragment-->
+<!--        android:id="@+id/navigation_cities"-->
+<!--        android:name="com.sofascore.networking.ui.cities.CitiesFragment"-->
+<!--        android:label="@string/title_cities"-->
+<!--        tools:layout="@layout/fragment_cities" />-->
 
-    <fragment
-        android:id="@+id/navigation_settings"
-        android:name="com.sofascore.networking.ui.settings.SettingsFragment"
-        android:label="@string/title_settings"
-        tools:layout="@layout/fragment_settings" />
+<!--    <fragment-->
+<!--        android:id="@+id/navigation_settings"-->
+<!--        android:name="com.sofascore.networking.ui.settings.SettingsFragment"-->
+<!--        android:label="@string/title_settings"-->
+<!--        tools:layout="@layout/fragment_settings" />-->
 </navigation>
