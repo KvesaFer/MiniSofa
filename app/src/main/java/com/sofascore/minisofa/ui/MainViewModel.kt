@@ -55,15 +55,20 @@ class MainViewModel @Inject constructor(
         viewModelScope.launch {
             try {
                 val events = repository.getEvents(sport, date)
-                val groupedEvents = events.groupBy { it.tournamentName }
-                    .map { (tournamentName, events) ->
+                Log.d("MainViewModel", "Events: $events")
+
+                val groupedEvents = events.groupBy { it.tournamentId }
+                    .mapNotNull { (tournamentId, events) ->
+                        val tournament = repository.getTournamentById(tournamentId) ?: return@mapNotNull null
+                        val country = repository.getCountryById(tournament.countryId) ?: return@mapNotNull null
                         TournamentEvents(
-                            tournamentName = tournamentName,
-                            tournamentCountry = events.first().tournamentCountry,
-                            tournamentLogo = events.first().tournamentLogo,
+                            tournamentName = tournament.name,
+                            tournamentCountry = country.name,
+                            tournamentLogo = tournament.logoUrl,
                             events = events.sortedBy { it.startTime }
                         )
                     }
+                Log.d("MainViewModel", "Grouped Events: $groupedEvents")
                 val flatList = mutableListOf<Any>()
                 for (group in groupedEvents) {
                     flatList.add(group)

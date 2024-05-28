@@ -65,13 +65,10 @@ fun EventApiResponse.toEventInfo(): EventInfo {
         status = this.status,
         sport = this.tournament.sport.name,
         tournamentId = this.tournament.id,
-        tournamentName = this.tournament.name,
-        homeTeamCountry = this.homeTeam.country.name,
-        awayTeamCountry = this.awayTeam.country.name,
+        homeTeamCountryId = this.homeTeam.country.id,
+        awayTeamCountryId = this.awayTeam.country.id,
         homeTeamLogo = "https://academy-backend.sofascore.dev/team/${this.homeTeam.id}/image",
         awayTeamLogo = "https://academy-backend.sofascore.dev/team/${this.awayTeam.id}/image",
-        startTime = this.startDate.split("T")[1].split("+")[0].substring(startIndex = 0, endIndex = 5),
-        tournamentLogo = "",
-        tournamentCountry = ""
+        startTime = this.startDate.split("T")[1].split("+")[0].substring(startIndex = 0, endIndex = 5)
     )
 }

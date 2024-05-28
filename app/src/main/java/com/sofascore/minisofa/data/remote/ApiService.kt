@@ -15,49 +15,11 @@ import retrofit2.http.Path
 
 
 interface ApiService {
-
     @GET("sport/{slug}/events/{date}")
     suspend fun getEvents(
         @Path("slug") sportSlug: String,
         @Path("date") date: String
     ): List<EventApiResponse>
-
-    @GET("sport/{slug}/tournaments")
-    suspend fun getTournaments(
-        @Path("slug") sportSlug: String
-    ): List<Tournament>
-
-
-
-//    @GET("event/{id}")
-//    suspend fun getEventDetails(
-//        @Path("id") eventId: Int
-//    ): EventDetails
-
-//    @GET("event/{id}/incidents")
-//    suspend fun getEventIncidents(
-//        @Path("id") eventId: Int
-//    ): List<Incident>
-
-//    @GET("team/{id}")
-//    suspend fun getTeamDetails(
-//        @Path("id") teamId: Int
-//    ): TeamDetails
-
-    @GET("team/{id}/events/{span}/{page}")
-    suspend fun getTeamEvents(
-        @Path("id") teamId: Int,
-        @Path("span") span: String,
-        @Path("page") page: Int
-    ): List<EventInfo>
-
-//    @GET("team/{id}/players")
-//    suspend fun getTeamPlayers(
-//        @Path("id") teamId: Int
-//    ): List<Player>
-
-    @GET("team/tournaments")
-    suspend fun getTeamTournaments(): List<Tournament>
 
     @GET("team/{id}/image")
     suspend fun getTeamLogo(
@@ -74,27 +36,8 @@ interface ApiService {
         @Path("id") tournamentId: Int
     ): Tournament
 
-//    @GET("tournament/{id}/standings")
-//    suspend fun getTournamentStandings(
-//        @Path("id") tournamentId: Int
-//    ): List<Standing>
-
-    @GET("tournament/{id}/events/{span}/{page}")
-    suspend fun getTournamentEvents(
-        @Path("id") tournamentId: Int,
-        @Path("span") span: String,
-        @Path("page") page: Int
-    ): List<EventInfo>
-
-//    @GET("player/{id}")
-//    suspend fun getPlayerDetails(
-//        @Path("id") playerId: Int
-//    ): PlayerDetails
-
-    @GET("player/{id}/events/{span}/{page}")
-    suspend fun getPlayerEvents(
-        @Path("id") playerId: Int,
-        @Path("span") span: String,
-        @Path("page") page: Int
-    ): List<EventInfo>
+    @GET("sport/{slug}/tournaments")
+    suspend fun getTournamentsBySport(
+        @Path("slug") slug: String
+    ): List<Tournament>
 }

@@ -1,5 +1,6 @@
 package com.sofascore.minisofa
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -30,17 +31,28 @@ class MainActivity : AppCompatActivity() {
     private val viewModel: MainViewModel by viewModels()
     private lateinit var eventAdapter: EventAdapter
     private lateinit var dateAdapter: DateAdapter
+    private val dateFormat = SimpleDateFormat("yyyy-MM-dd", Locale.ENGLISH)
+    private val displayDateFormat = SimpleDateFormat("EEE, dd.MM.yyyy.", Locale.ENGLISH)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        setupClickListeners()
         setSupportActionBar(findViewById(R.id.toolbar))
         setupSportTabs()
         setupDateRecyclerView()
         setupRecyclerView()
         observeViewModel()
+
+        loadDefaultEvents()
+    }
+
+    private fun setupClickListeners() {
+        binding.toolbar.actionLeagues.setOnClickListener {
+            startActivity(Intent(this, LeaguesActivity::class.java))
+        }
     }
 
     private fun setupSportTabs() {
@@ -88,6 +100,7 @@ class MainActivity : AppCompatActivity() {
 
         dateAdapter = DateAdapter(dates) { selectedDate ->
             viewModel.setDate(SimpleDateFormat("yyyy-MM-dd", Locale.ENGLISH).format(selectedDate))
+            updateDateListSection(selectedDate)
         }
 
         binding.dateRecyclerView.apply {
@@ -127,9 +140,39 @@ class MainActivity : AppCompatActivity() {
             if (events != null) {
                 Log.d("MainActivity", "Received events: $events")
                 eventAdapter.submitList(events)
+                setNumberOfEvents(events.size)
             } else {
                 Log.d("MainActivity", "No events found")
+                setNumberOfEvents(0)
             }
         }
+    }
+
+    private fun updateDateListSection(date: Date) {
+        val today = Calendar.getInstance().time
+        val sectionDate = if (dateFormat.format(date) == dateFormat.format(today)) {
+            "Today"
+        } else {
+            displayDateFormat.format(date)
+        }
+        setDateListSection(sectionDate)
+    }
+
+    private fun setDateListSection(date: String) {
+        binding.dateListSection.text = date
+    }
+
+    private fun setNumberOfEvents(number: Int) {
+        binding.numberOfEvents.text = "$number events"
+    }
+
+    private fun loadDefaultEvents() {
+        viewModel.setSport("football")
+
+        val today = Calendar.getInstance().time
+        val formattedToday = dateFormat.format(today)
+        viewModel.setDate(formattedToday)
+
+        updateDateListSection(today)
     }
 }
