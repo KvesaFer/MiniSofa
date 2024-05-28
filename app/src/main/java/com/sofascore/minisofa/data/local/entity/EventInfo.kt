@@ -21,5 +21,7 @@ data class EventInfo(
     val awayTeamCountry: String,
     val homeTeamLogo: String,
     val awayTeamLogo: String,
-    val startTime: String
+    val startTime: String,
+    var tournamentLogo: String,
+    var tournamentCountry: String
 )

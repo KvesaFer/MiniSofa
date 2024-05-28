@@ -20,26 +20,31 @@ import java.util.Locale
 import javax.inject.Inject
 import kotlinx.coroutines.launch
 
+data class TournamentEvents(
+    val tournamentName: String,
+    val tournamentCountry: String,
+    val tournamentLogo: String?,
+    val events: List<EventInfo>
+)
+
 @HiltViewModel
 class MainViewModel @Inject constructor(
     private val repository: EventRepository
 ) : ViewModel() {
     private val dateFormat = SimpleDateFormat("yyyy-MM-dd", Locale.ENGLISH)
 
-    private val _sport = MutableLiveData<String>("football")
-    private val _date = MutableLiveData<String>(dateFormat.format(Date()))
-    private val _events = MutableLiveData<List<EventInfo>>()
+    private val _sport = MutableLiveData("football")
+    private val _date = MutableLiveData(dateFormat.format(Date()))
+    private val _flatEventList = MutableLiveData<List<Any>>()
 
-    val events: LiveData<List<EventInfo>> get() = _events
+    val flatEventList: LiveData<List<Any>> get() = _flatEventList
 
     fun setSport(sport: String) {
-        Log.d("MainViewModel", "setSport called with $sport")
         _sport.value = sport
         fetchEvents()
     }
 
     fun setDate(date: String) {
-        Log.d("MainViewModel", "setDate called with $date")
         _date.value = date
         fetchEvents()
     }
@@ -50,10 +55,23 @@ class MainViewModel @Inject constructor(
         viewModelScope.launch {
             try {
                 val events = repository.getEvents(sport, date)
-                Log.d("MainViewModel", "Events from repo: ${events}")
-                _events.value = events
+                val groupedEvents = events.groupBy { it.tournamentName }
+                    .map { (tournamentName, events) ->
+                        TournamentEvents(
+                            tournamentName = tournamentName,
+                            tournamentCountry = events.first().tournamentCountry,
+                            tournamentLogo = events.first().tournamentLogo,
+                            events = events.sortedBy { it.startTime }
+                        )
+                    }
+                val flatList = mutableListOf<Any>()
+                for (group in groupedEvents) {
+                    flatList.add(group)
+                    flatList.addAll(group.events)
+                }
+                _flatEventList.value = flatList
             } catch (e: Exception) {
-                Log.e("MainViewModel", "Error fetching events: ${e.message}")
+                Log.e("MainViewModel", "Error with grouping events: ${e.message}")
             }
         }
     }

@@ -123,7 +123,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun observeViewModel() {
-        viewModel.events.observe(this) { events ->
+        viewModel.flatEventList.observe(this) { events ->
             if (events != null) {
                 Log.d("MainActivity", "Received events: $events")
                 eventAdapter.submitList(events)

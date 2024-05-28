@@ -69,10 +69,10 @@ interface ApiService {
         @Path("id") tournamentId: Int
     ): retrofit2.Response<Void>
 
-//    @GET("tournament/{id}")
-//    suspend fun getTournamentDetails(
-//        @Path("id") tournamentId: Int
-//    ): TournamentDetails
+    @GET("tournament/{id}")
+    suspend fun getTournamentDetails(
+        @Path("id") tournamentId: Int
+    ): Tournament
 
 //    @GET("tournament/{id}/standings")
 //    suspend fun getTournamentStandings(

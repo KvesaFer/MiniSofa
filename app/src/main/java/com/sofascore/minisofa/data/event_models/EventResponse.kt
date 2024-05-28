@@ -15,7 +15,9 @@ data class EventApiResponse(
     val awayScore: Score,
     val winnerCode: String?,
     val round: Int,
-    val startTime: String
+    val startTime: String,
+    var tournamentLogo: String,
+    var tournamentCountry: String
 )
 
 data class Tournament(
@@ -68,6 +70,8 @@ fun EventApiResponse.toEventInfo(): EventInfo {
         awayTeamCountry = this.awayTeam.country.name,
         homeTeamLogo = "https://academy-backend.sofascore.dev/team/${this.homeTeam.id}/image",
         awayTeamLogo = "https://academy-backend.sofascore.dev/team/${this.awayTeam.id}/image",
-        startTime = this.startDate.split("T")[1].split("+")[0].substring(startIndex = 0, endIndex = 5)
+        startTime = this.startDate.split("T")[1].split("+")[0].substring(startIndex = 0, endIndex = 5),
+        tournamentLogo = "",
+        tournamentCountry = ""
     )
 }

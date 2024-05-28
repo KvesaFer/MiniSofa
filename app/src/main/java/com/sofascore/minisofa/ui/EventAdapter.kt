@@ -12,18 +12,55 @@ import com.bumptech.glide.request.RequestOptions
 import com.sofascore.minisofa.R
 import com.sofascore.minisofa.data.local.entity.EventInfo
 import com.sofascore.minisofa.databinding.ItemEventBinding
+import com.sofascore.minisofa.databinding.ItemTournamentHeaderBinding
 
-class EventAdapter : ListAdapter<EventInfo, EventAdapter.EventViewHolder>(EventComparator) {
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): EventViewHolder {
-        val binding = ItemEventBinding.inflate(LayoutInflater.from(parent.context), parent, false)
-        return EventViewHolder(binding)
+class EventAdapter : ListAdapter<Any, RecyclerView.ViewHolder>(EventComparator) {
+
+    companion object {
+        private const val VIEW_TYPE_HEADER = 0
+        private const val VIEW_TYPE_EVENT = 1
     }
 
-    override fun onBindViewHolder(holder: EventViewHolder, position: Int) {
-        val event = getItem(position)
-        if (event != null) {
-            holder.bind(event)
+    override fun getItemViewType(position: Int): Int {
+        return when (getItem(position)) {
+            is TournamentEvents -> VIEW_TYPE_HEADER
+            is EventInfo -> VIEW_TYPE_EVENT
+            else -> throw IllegalArgumentException("Invalid view type")
+        }
+    }
+
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
+        return when (viewType) {
+            VIEW_TYPE_HEADER -> {
+                val binding = ItemTournamentHeaderBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+                TournamentViewHolder(binding)
+            }
+            VIEW_TYPE_EVENT -> {
+                val binding = ItemEventBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+                EventViewHolder(binding)
+            }
+            else -> throw IllegalArgumentException("Invalid view type")
+        }
+    }
+
+    override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
+        when (holder) {
+            is TournamentViewHolder -> holder.bind(getItem(position) as TournamentEvents)
+            is EventViewHolder -> holder.bind(getItem(position) as EventInfo)
+        }
+    }
+
+    class TournamentViewHolder(private val binding: ItemTournamentHeaderBinding) :
+        RecyclerView.ViewHolder(binding.root) {
+
+        fun bind(tournamentEvents: TournamentEvents) {
+            binding.tournamentCountry.text = tournamentEvents.tournamentCountry
+            binding.tournamentName.text = tournamentEvents.tournamentName
+            Glide.with(binding.tournamentLogo.context)
+                .load(tournamentEvents.tournamentLogo)
+                .apply(RequestOptions().placeholder(R.drawable.ic_placeholder).error(R.drawable.ic_error))
+                .into(binding.tournamentLogo)
         }
     }
 
@@ -78,12 +115,13 @@ class EventAdapter : ListAdapter<EventInfo, EventAdapter.EventViewHolder>(EventC
         }
     }
 
-    object EventComparator : DiffUtil.ItemCallback<EventInfo>() {
-        override fun areItemsTheSame(oldItem: EventInfo, newItem: EventInfo): Boolean {
-            return oldItem.id == newItem.id
+    object EventComparator : DiffUtil.ItemCallback<Any>() {
+        override fun areItemsTheSame(oldItem: Any, newItem: Any): Boolean {
+            return (oldItem is TournamentEvents && newItem is TournamentEvents && oldItem.tournamentName == newItem.tournamentName)
+                || (oldItem is EventInfo && newItem is EventInfo && oldItem.id == newItem.id)
         }
 
-        override fun areContentsTheSame(oldItem: EventInfo, newItem: EventInfo): Boolean {
+        override fun areContentsTheSame(oldItem: Any, newItem: Any): Boolean {
             return oldItem == newItem
         }
     }
