@@ -1,4 +1,4 @@
-package com.sofascore.minisofa.ui
+package com.sofascore.minisofa.ui.adapters
 
 import android.view.LayoutInflater
 import android.view.View

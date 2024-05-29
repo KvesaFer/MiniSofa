@@ -1,4 +1,4 @@
-package com.sofascore.minisofa.ui
+package com.sofascore.minisofa.ui.viewmodels
 
 import android.util.Log
 import androidx.lifecycle.LiveData

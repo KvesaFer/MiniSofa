@@ -9,9 +9,10 @@ class StandingsRepository @Inject constructor(
 ) {
     suspend fun getStandings(tournamentId: Int): List<TeamStanding> {
         val response = apiService.getStandings(tournamentId)
+
         return response.flatMap { it.sortedStandingsRows.map { row ->
             TeamStanding(
-                position = row.id,
+                id = row.id,
                 teamName = row.team.name,
                 played = row.played,
                 won = row.wins,

@@ -1,4 +1,4 @@
-package com.sofascore.minisofa.ui
+package com.sofascore.minisofa.ui.adapters
 
 import android.view.LayoutInflater
 import android.view.View
@@ -13,9 +13,10 @@ import com.bumptech.glide.request.RequestOptions
 import com.sofascore.minisofa.R
 import com.sofascore.minisofa.data.local.entity.EventInfo
 import com.sofascore.minisofa.databinding.ItemEventBinding
-import com.sofascore.minisofa.databinding.ItemLeagueDetailsHeaderBinding
+import com.sofascore.minisofa.databinding.ItemTournamentHeaderBinding
+import com.sofascore.minisofa.ui.viewmodels.TournamentEvents
 
-class MatchesAdapter : ListAdapter<Any, RecyclerView.ViewHolder>(DiffCallback()) {
+class EventAdapter : ListAdapter<Any, RecyclerView.ViewHolder>(EventComparator) {
 
     companion object {
         private const val VIEW_TYPE_HEADER = 0
@@ -24,7 +25,7 @@ class MatchesAdapter : ListAdapter<Any, RecyclerView.ViewHolder>(DiffCallback())
 
     override fun getItemViewType(position: Int): Int {
         return when (getItem(position)) {
-            is String -> VIEW_TYPE_HEADER
+            is TournamentEvents -> VIEW_TYPE_HEADER
             is EventInfo -> VIEW_TYPE_EVENT
             else -> throw IllegalArgumentException("Invalid view type")
         }
@@ -33,8 +34,8 @@ class MatchesAdapter : ListAdapter<Any, RecyclerView.ViewHolder>(DiffCallback())
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         return when (viewType) {
             VIEW_TYPE_HEADER -> {
-                val binding = ItemLeagueDetailsHeaderBinding.inflate(LayoutInflater.from(parent.context), parent, false)
-                HeaderViewHolder(binding)
+                val binding = ItemTournamentHeaderBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+                TournamentViewHolder(binding)
             }
             VIEW_TYPE_EVENT -> {
                 val binding = ItemEventBinding.inflate(LayoutInflater.from(parent.context), parent, false)
@@ -46,16 +47,23 @@ class MatchesAdapter : ListAdapter<Any, RecyclerView.ViewHolder>(DiffCallback())
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         when (holder) {
-            is HeaderViewHolder -> holder.bind(getItem(position) as String)
+            is TournamentViewHolder -> holder.bind(getItem(position) as TournamentEvents)
             is EventViewHolder -> holder.bind(getItem(position) as EventInfo)
         }
     }
 
-    class HeaderViewHolder(private val binding: ItemLeagueDetailsHeaderBinding) :
+    class TournamentViewHolder(private val binding: ItemTournamentHeaderBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
-        fun bind(round: String) {
-            binding.roundHeader.text = round
+        fun bind(tournamentEvents: TournamentEvents) {
+            binding.tournamentCountry.text = tournamentEvents.tournamentCountry
+            binding.tournamentName.text = tournamentEvents.tournamentName
+            Glide.with(binding.tournamentLogo.context)
+                .load(tournamentEvents.tournamentLogo)
+                .apply(RequestOptions().placeholder(R.drawable.ic_placeholder).error(R.drawable.ic_error))
+                .into(binding.tournamentLogo)
+
+            binding.hline.visibility = if (position == 0) View.GONE else View.VISIBLE
         }
     }
 
@@ -153,15 +161,10 @@ class MatchesAdapter : ListAdapter<Any, RecyclerView.ViewHolder>(DiffCallback())
         }
     }
 
-    class DiffCallback : DiffUtil.ItemCallback<Any>() {
+    object EventComparator : DiffUtil.ItemCallback<Any>() {
         override fun areItemsTheSame(oldItem: Any, newItem: Any): Boolean {
-            return if (oldItem is String && newItem is String) {
-                oldItem == newItem
-            } else if (oldItem is EventInfo && newItem is EventInfo) {
-                oldItem.id == newItem.id
-            } else {
-                false
-            }
+            return (oldItem is TournamentEvents && newItem is TournamentEvents && oldItem.tournamentName == newItem.tournamentName)
+                || (oldItem is EventInfo && newItem is EventInfo && oldItem.id == newItem.id)
         }
 
         override fun areContentsTheSame(oldItem: Any, newItem: Any): Boolean {

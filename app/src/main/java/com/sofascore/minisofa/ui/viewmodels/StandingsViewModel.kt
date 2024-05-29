@@ -1,4 +1,4 @@
-package com.sofascore.minisofa.ui
+package com.sofascore.minisofa.ui.viewmodels
 
 import android.util.Log
 import androidx.lifecycle.LiveData
@@ -22,7 +22,13 @@ class StandingsViewModel @Inject constructor(
     fun loadStandings(tournamentId: Int) {
         viewModelScope.launch {
             try {
-                val standings = repository.getStandings(tournamentId)
+                val standings = repository.getStandings(tournamentId).sortedByDescending { it.points }
+                var ctr = 1
+                for (row in standings) {
+                    row.position = ctr
+                    ctr++
+                }
+                Log.d("StandingsViewModel", "Fteched standings: $standings")
                 _standings.postValue(standings)
             } catch (e: Exception) {
                 Log.e("StandingsViewModel", "Error loading standings: ${e.message}", e)

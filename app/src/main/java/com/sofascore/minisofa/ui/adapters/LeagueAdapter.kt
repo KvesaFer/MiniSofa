@@ -1,4 +1,4 @@
-package com.sofascore.minisofa.ui
+package com.sofascore.minisofa.ui.adapters
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -11,7 +11,9 @@ import com.sofascore.minisofa.R
 import com.sofascore.minisofa.data.local.entity.TournamentEntity
 import com.sofascore.minisofa.databinding.ItemLeagueBinding
 
-class LeagueAdapter(private val onLeagueClick: (TournamentEntity) -> Unit) : ListAdapter<TournamentEntity, LeagueAdapter.LeagueViewHolder>(LeagueDiffCallback()) {
+class LeagueAdapter(private val onLeagueClick: (TournamentEntity) -> Unit) : ListAdapter<TournamentEntity, LeagueAdapter.LeagueViewHolder>(
+    LeagueDiffCallback()
+) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): LeagueViewHolder {
         val binding = ItemLeagueBinding.inflate(LayoutInflater.from(parent.context), parent, false)

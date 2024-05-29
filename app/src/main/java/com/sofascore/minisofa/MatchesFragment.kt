@@ -10,9 +10,8 @@ import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.sofascore.minisofa.databinding.FragmentMatchesBinding
-import com.sofascore.minisofa.ui.EventAdapter
-import com.sofascore.minisofa.ui.MatchesAdapter
-import com.sofascore.minisofa.ui.MatchesViewModel
+import com.sofascore.minisofa.ui.adapters.MatchesAdapter
+import com.sofascore.minisofa.ui.viewmodels.MatchesViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -31,7 +30,6 @@ class MatchesFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        Log.d("MatchesFragment", "onCreateView called")
         binding = FragmentMatchesBinding.inflate(inflater, container, false)
         return binding.root
     }

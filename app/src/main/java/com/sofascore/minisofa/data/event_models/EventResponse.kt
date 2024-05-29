@@ -36,8 +36,7 @@ data class StandingRow(
     val played: Int,
     val wins: Int,
     val draws: Int,
-    val losses: Int,
-    val percentage: Int
+    val losses: Int
 )
 
 data class Tournament(
@@ -75,7 +74,8 @@ data class EventResponse(
 )
 
 data class TeamStanding(
-    val position: Int,
+    val id: Int,
+    var position:Int = 0,
     val teamName: String,
     val played: Int,
     val won: Int,

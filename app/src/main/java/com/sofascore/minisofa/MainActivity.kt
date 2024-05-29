@@ -9,20 +9,17 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
-import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.tabs.TabLayout
 import com.sofascore.minisofa.databinding.ActivityMainBinding
-import com.sofascore.minisofa.ui.DateAdapter
-import com.sofascore.minisofa.ui.EventAdapter
-import com.sofascore.minisofa.ui.MainViewModel
+import com.sofascore.minisofa.ui.adapters.DateAdapter
+import com.sofascore.minisofa.ui.adapters.EventAdapter
+import com.sofascore.minisofa.ui.viewmodels.MainViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import java.text.SimpleDateFormat
 import java.util.Calendar
 import java.util.Date
 import java.util.Locale
-import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {

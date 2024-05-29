@@ -13,8 +13,8 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.material.tabs.TabLayout
 import com.sofascore.minisofa.data.local.entity.TournamentEntity
 import com.sofascore.minisofa.databinding.ActivityLeaguesBinding
-import com.sofascore.minisofa.ui.LeagueAdapter
-import com.sofascore.minisofa.ui.LeaguesViewModel
+import com.sofascore.minisofa.ui.adapters.LeagueAdapter
+import com.sofascore.minisofa.ui.viewmodels.LeaguesViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

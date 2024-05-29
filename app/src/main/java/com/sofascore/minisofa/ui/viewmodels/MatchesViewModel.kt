@@ -1,6 +1,5 @@
-package com.sofascore.minisofa.ui
+package com.sofascore.minisofa.ui.viewmodels
 
-import android.provider.CalendarContract.EventsEntity
 import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData

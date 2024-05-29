@@ -12,15 +12,12 @@ import androidx.fragment.app.FragmentActivity
 import androidx.viewpager2.adapter.FragmentStateAdapter
 import com.bumptech.glide.Glide
 import com.google.android.material.tabs.TabLayoutMediator
-import com.sofascore.minisofa.data.event_models.Country
-import com.sofascore.minisofa.data.event_models.Tournament
 import com.sofascore.minisofa.data.local.entity.CountryEntity
 import com.sofascore.minisofa.data.local.entity.TournamentEntity
 import com.sofascore.minisofa.databinding.ActivityLeagueDetailsBinding
-import com.sofascore.minisofa.ui.LeagueDetailsViewModel
+import com.sofascore.minisofa.ui.viewmodels.LeagueDetailsViewModel
 import com.sofascore.minisofa.utils.CountryCodes
 import dagger.hilt.android.AndroidEntryPoint
-import java.util.Locale
 
 @AndroidEntryPoint
 class LeagueDetailsActivity : AppCompatActivity() {

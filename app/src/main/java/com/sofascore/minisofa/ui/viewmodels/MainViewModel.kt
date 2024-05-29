@@ -1,16 +1,10 @@
-package com.sofascore.minisofa.ui
+package com.sofascore.minisofa.ui.viewmodels
 
-import android.media.metrics.Event
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import android.util.Log
 import androidx.lifecycle.ViewModel
-import androidx.lifecycle.asLiveData
-import androidx.lifecycle.liveData
-import androidx.lifecycle.switchMap
 import androidx.lifecycle.viewModelScope
-import androidx.paging.PagingData
-import androidx.paging.cachedIn
 import com.sofascore.minisofa.data.local.entity.EventInfo
 import com.sofascore.minisofa.data.repository.EventRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
