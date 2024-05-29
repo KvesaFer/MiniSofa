@@ -101,6 +101,7 @@ class EventRepository @Inject constructor(
     suspend fun getEventsForTournament(tournamentId: Int, span: String, page: Int): List<EventInfo> {
         return try {
             val eventsApiResponse = apiService.getTournamentEvents(tournamentId, span, page)
+            Log.d("EventRepository", "EventApiResponse: $eventsApiResponse")
             val events = eventsApiResponse.map { it.toEventInfo() }
             eventDao.insertAll(events)
             events

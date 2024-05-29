@@ -24,7 +24,6 @@ class MatchesFragment : Fragment() {
     private var tournamentId: Int = 0
 
     companion object {
-        private const val TAG = "MatchesFragment"
         private const val TOURNAMENT_ID_KEY = "TOURNAMENT_ID"
     }
 
@@ -32,14 +31,13 @@ class MatchesFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        Log.d(TAG, "onCreateView called")
+        Log.d("MatchesFragment", "onCreateView called")
         binding = FragmentMatchesBinding.inflate(inflater, container, false)
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        Log.d(TAG, "onViewCreated called")
         initializeTournamentId()
         if (tournamentId == 0) return
 
@@ -51,11 +49,6 @@ class MatchesFragment : Fragment() {
     private fun initializeTournamentId() {
         arguments?.let {
             tournamentId = it.getInt(TOURNAMENT_ID_KEY, 0)
-        }
-        if (tournamentId == 0) {
-            Log.e(TAG, "No tournament ID found in arguments")
-        } else {
-            Log.d(TAG, "Tournament ID: $tournamentId")
         }
     }
 
@@ -76,23 +69,24 @@ class MatchesFragment : Fragment() {
     private fun handleScroll(recyclerView: RecyclerView) {
         val layoutManager = recyclerView.layoutManager as LinearLayoutManager
         val totalItemCount = layoutManager.itemCount
+        val firstVisibleItem = layoutManager.findFirstVisibleItemPosition()
         val lastVisibleItem = layoutManager.findLastVisibleItemPosition()
 
-        if (lastVisibleItem >= totalItemCount - 2) {
-            Log.d(TAG, "Loading more matches")
-            viewModel.loadMatches(tournamentId)
+        if (firstVisibleItem <= 2) {
+            viewModel.loadPreviousMatches(tournamentId)
+        } else if (lastVisibleItem >= totalItemCount - 2) {
+            viewModel.loadUpcomingMatches(tournamentId)
         }
     }
 
     private fun observeViewModel() {
         viewModel.matches.observe(viewLifecycleOwner) { matches ->
-            Log.d(TAG, "Observed new matches list with size: ${matches.size}")
             matchesAdapter.submitList(matches)
         }
     }
 
     private fun loadInitialMatches() {
-        Log.d(TAG, "Loading initial matches for tournament ID: $tournamentId")
-        viewModel.loadMatches(tournamentId)
+        Log.d("MatchesFragment", "Loading initial matches for tournament ID: $tournamentId")
+        viewModel.loadInitialMatches(tournamentId)
     }
 }

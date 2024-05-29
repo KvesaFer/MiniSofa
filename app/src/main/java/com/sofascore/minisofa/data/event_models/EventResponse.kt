@@ -66,8 +66,8 @@ data class Country(
 )
 
 data class Score(
-    val current: Int? = null,
-    val halfTime: Int? = null
+    val total: Int? = null,
+    val period2: Int? = null
 )
 
 data class EventResponse(
@@ -92,8 +92,8 @@ fun EventApiResponse.toEventInfo(): EventInfo {
         date = this.startDate.split("T")[0],
         homeName = this.homeTeam.name,
         awayName = this.awayTeam.name,
-        homeScore = this.homeScore.current ?: 0,
-        awayScore = this.awayScore.current ?: 0,
+        homeScore = this.homeScore.total ?: 0,
+        awayScore = this.awayScore.total ?: 0,
         status = this.status,
         sport = this.tournament.sport.name,
         tournamentId = this.tournament.id,

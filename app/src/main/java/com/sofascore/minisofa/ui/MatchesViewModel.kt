@@ -20,45 +20,85 @@ class MatchesViewModel @Inject constructor(
     private val _matches = MutableLiveData<List<Any>>()
     val matches: LiveData<List<Any>> get() = _matches
 
-    private var currentPage = 0
+    private var currentUpcomingPage = 0
+    private var currentPreviousPage = 0
     private var isLoading = false
 
-    companion object {
-        private const val TAG = "MatchesViewModel"
-    }
-
-    fun loadMatches(tournamentId: Int) {
-        if (isLoading) {
-            Log.d(TAG, "Already loading matches, skipping request")
-            return
-        }
+    fun loadInitialMatches(tournamentId: Int) {
+        if (isLoading) return
         isLoading = true
-        Log.d(TAG, "Starting to load matches for tournament ID: $tournamentId, page: $currentPage")
+        Log.d("MatchesViewModel", "Starting to load initial matches for tournament ID: $tournamentId")
 
         viewModelScope.launch {
             try {
-                val previousEvents = repository.getEventsForTournament(tournamentId, "last", currentPage)
-                val events = repository.getEventsForTournament(tournamentId, "next", currentPage)
+                val previousEvents = repository.getEventsForTournament(tournamentId, "last", currentPreviousPage)
+                val nextEvents = repository.getEventsForTournament(tournamentId, "next", currentUpcomingPage)
+                val events = (previousEvents + nextEvents).sortedBy { it.round }
                 if (events.isNotEmpty()) {
-                    currentPage++
-                    val currentList = _matches.value ?: emptyList()
-                    val groupedEvents = groupEventsByRound(currentList, events)
+                    currentPreviousPage++
+                    currentUpcomingPage++
+                    val groupedEvents = groupEventsByRound(events)
                     _matches.postValue(groupedEvents)
-                    Log.d(TAG, "Loaded ${events.size} events, total: ${groupedEvents.size}")
-                } else {
-                    Log.d(TAG, "No more events to load")
+                    Log.d("MatchesViewModel", "Loaded initial events, total: ${groupedEvents.size}")
                 }
             } catch (e: Exception) {
-                Log.e(TAG, "Error loading matches: ${e.message}", e)
+                Log.e("MatchesViewModel", "Error loading matches: ${e.message}", e)
             } finally {
                 isLoading = false
-                Log.d(TAG, "Finished loading matches")
+                Log.d("MatchesViewModel", "Finished loading initial matches")
             }
         }
     }
 
-    private fun groupEventsByRound(currentList: List<Any>, events: List<EventInfo>): List<Any> {
-        return currentList + events.groupBy { it.round }.flatMap { (round, events) ->
+    fun loadPreviousMatches(tournamentId: Int) {
+        if (isLoading) return
+        isLoading = true
+
+        viewModelScope.launch {
+            try {
+                val previousEvents = repository.getEventsForTournament(tournamentId, "last", currentPreviousPage)
+                if (previousEvents.isNotEmpty()) {
+                    currentPreviousPage++
+                    val currentList = _matches.value ?: emptyList()
+                    val updatedList = groupEventsByRound((previousEvents + currentList.filterIsInstance<EventInfo>()).sortedBy { it.round })
+                    _matches.postValue(updatedList)
+                    Log.d("MatchesViewModel", "Loaded ${previousEvents.size} previous events, total: ${updatedList.size}")
+                }
+            } catch (e: Exception) {
+                Log.e("MatchesViewModel", "Error loading previous matches: ${e.message}", e)
+            } finally {
+                isLoading = false
+                Log.d("MatchesViewModel", "Finished loading previous matches")
+            }
+        }
+    }
+
+    fun loadUpcomingMatches(tournamentId: Int) {
+        if (isLoading) return
+        isLoading = true
+        Log.d("MatchesViewModel", "Starting to load upcoming matches for tournament ID: $tournamentId, page: $currentUpcomingPage")
+
+        viewModelScope.launch {
+            try {
+                val upcomingEvents = repository.getEventsForTournament(tournamentId, "next", currentUpcomingPage)
+                if (upcomingEvents.isNotEmpty()) {
+                    currentUpcomingPage++
+                    val currentList = _matches.value ?: emptyList()
+                    val updatedList = groupEventsByRound((currentList.filterIsInstance<EventInfo>() + upcomingEvents).sortedBy { it.round })
+                    _matches.postValue(updatedList)
+                    Log.d("MatchesViewModel", "Loaded ${upcomingEvents.size} upcoming events, total: ${updatedList.size}")
+                }
+            } catch (e: Exception) {
+                Log.e("MatchesViewModel", "Error loading upcoming matches: ${e.message}", e)
+            } finally {
+                isLoading = false
+                Log.d("MatchesViewModel", "Finished loading upcoming matches")
+            }
+        }
+    }
+
+    private fun groupEventsByRound(events: List<EventInfo>): List<Any> {
+        return events.groupBy { it.round }.flatMap { (round, events) ->
             listOf("Round $round") + events
         }
     }
