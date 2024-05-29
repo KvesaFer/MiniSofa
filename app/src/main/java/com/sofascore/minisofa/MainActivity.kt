@@ -53,6 +53,8 @@ class MainActivity : AppCompatActivity() {
         binding.toolbar.actionLeagues.setOnClickListener {
             startActivity(Intent(this, LeaguesActivity::class.java))
         }
+
+//        binding.toolbar.actionSettings() { TODO dodaj settingse}
     }
 
     private fun setupSportTabs() {

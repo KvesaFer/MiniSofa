@@ -1,5 +1,6 @@
 package com.sofascore.minisofa
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -8,10 +9,9 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
-import androidx.databinding.DataBindingUtil.setContentView
-import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.material.tabs.TabLayout
+import com.sofascore.minisofa.data.local.entity.TournamentEntity
 import com.sofascore.minisofa.databinding.ActivityLeaguesBinding
 import com.sofascore.minisofa.ui.LeagueAdapter
 import com.sofascore.minisofa.ui.LeaguesViewModel
@@ -31,6 +31,9 @@ class LeaguesActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         setSupportActionBar(binding.toolbarLeagues.root.findViewById(R.id.toolbar))
+
+        val tw: TextView = binding.toolbarLeagues.root.findViewById(R.id.tw_leagues)
+        tw.text = "Leagues"
 
         setupRecyclerView()
         setupTabs()
@@ -54,7 +57,9 @@ class LeaguesActivity : AppCompatActivity() {
 
     private fun setupRecyclerView() {
         Log.d("LeaguesActivity", "Setting up RecyclerView")
-        leagueAdapter = LeagueAdapter()
+        leagueAdapter = LeagueAdapter { league ->
+            onLeagueClicked(league)
+        }
         binding.rwLeagues.apply {
             adapter = leagueAdapter
             layoutManager = LinearLayoutManager(this@LeaguesActivity)
@@ -107,5 +112,14 @@ class LeaguesActivity : AppCompatActivity() {
     private fun loadLeagues(sportSlug: String) {
         Log.d("LeaguesActivity", "Loading leagues for sport: $sportSlug")
         viewModel.loadTournaments(sportSlug)
+    }
+
+    private fun onLeagueClicked(league: TournamentEntity) {
+        Log.d("LeaguesActivity", "League clicked: ${league.name}")
+        val intent = Intent(this, LeagueDetailsActivity::class.java).apply {
+            putExtra("leagueId", league.id)
+            putExtra("leagueName", league.name)
+        }
+        startActivity(intent)
     }
 }

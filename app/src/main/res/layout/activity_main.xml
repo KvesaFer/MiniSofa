@@ -25,7 +25,7 @@
         app:tabIndicatorFullWidth="false"
         app:tabPaddingStart="8dp"
         app:tabPaddingEnd="8dp"
-        android:background="?attr/colorPrimary" />
+        android:background="@color/color_primary_default" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/dateRecyclerView"
@@ -34,7 +34,7 @@
         app:layout_constraintTop_toBottomOf="@id/tabLayout"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:background="?attr/colorPrimary" />
+        android:background="@color/color_primary_variant" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/listSection"

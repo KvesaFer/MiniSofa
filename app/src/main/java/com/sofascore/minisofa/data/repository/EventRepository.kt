@@ -96,6 +96,17 @@ class EventRepository @Inject constructor(
         }
         tournamentDao.insertAll(leagues_db)
         return tournamentDao.getTournamentsBySport(sportSlug.replaceFirstChar { if (it.isLowerCase()) it.titlecase(Locale.ROOT) else it.toString() })
+    }
 
+    suspend fun getEventsForTournament(tournamentId: Int, span: String, page: Int): List<EventInfo> {
+        return try {
+            val eventsApiResponse = apiService.getTournamentEvents(tournamentId, span, page)
+            val events = eventsApiResponse.map { it.toEventInfo() }
+            eventDao.insertAll(events)
+            events
+        } catch (e: Exception) {
+            Log.e("EventRepository", "Error fetching events: ${e.message}", e)
+            emptyList()
+        }
     }
 }

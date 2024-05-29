@@ -11,19 +11,21 @@ import com.sofascore.minisofa.R
 import com.sofascore.minisofa.data.local.entity.TournamentEntity
 import com.sofascore.minisofa.databinding.ItemLeagueBinding
 
-class LeagueAdapter : ListAdapter<TournamentEntity, LeagueAdapter.LeagueViewHolder>(LeagueDiffCallback()) {
+class LeagueAdapter(private val onLeagueClick: (TournamentEntity) -> Unit) : ListAdapter<TournamentEntity, LeagueAdapter.LeagueViewHolder>(LeagueDiffCallback()) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): LeagueViewHolder {
         val binding = ItemLeagueBinding.inflate(LayoutInflater.from(parent.context), parent, false)
-        return LeagueViewHolder(binding)
+        return LeagueViewHolder(binding, onLeagueClick)
     }
 
     override fun onBindViewHolder(holder: LeagueViewHolder, position: Int) {
         holder.bind(getItem(position))
     }
 
-    class LeagueViewHolder(private val binding: ItemLeagueBinding) :
-        RecyclerView.ViewHolder(binding.root) {
+    class LeagueViewHolder(
+        private val binding: ItemLeagueBinding,
+        private val onLeagueClick: (TournamentEntity) -> Unit
+    ) : RecyclerView.ViewHolder(binding.root) {
 
         fun bind(tournament: TournamentEntity) {
             binding.twLeagueName.text = tournament.name
@@ -31,6 +33,10 @@ class LeagueAdapter : ListAdapter<TournamentEntity, LeagueAdapter.LeagueViewHold
                 .load(tournament.logoUrl)
                 .apply(RequestOptions().placeholder(R.drawable.ic_placeholder).error(R.drawable.ic_error))
                 .into(binding.iwLeagueLogo)
+
+            binding.root.setOnClickListener {
+                onLeagueClick(tournament)
+            }
         }
     }
 

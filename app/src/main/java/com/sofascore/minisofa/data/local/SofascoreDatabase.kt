@@ -9,7 +9,7 @@ import com.sofascore.minisofa.data.local.entity.CountryEntity
 import com.sofascore.minisofa.data.local.entity.EventInfo
 import com.sofascore.minisofa.data.local.entity.TournamentEntity
 
-@Database(entities = [EventInfo::class, CountryEntity::class, TournamentEntity::class], version = 6)
+@Database(entities = [EventInfo::class, CountryEntity::class, TournamentEntity::class], version = 7)
 abstract class SofascoreDatabase : RoomDatabase() {
     abstract fun eventDao(): EventDao
     abstract fun countryDao(): CountryDao

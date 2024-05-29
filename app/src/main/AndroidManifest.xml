@@ -25,6 +25,7 @@
         </activity>
 
         <activity android:name=".LeaguesActivity" android:exported="true" />
+        <activity android:name=".LeagueDetailsActivity" android:exported="true" />
 
     </application>
 

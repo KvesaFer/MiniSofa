@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:id="@+id/headerExplanation"
+    android:layout_width="match_parent"
+    android:layout_height="48dp"
+    android:background="@color/surface_surface_1"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <TextView
+        android:id="@+id/positionStandingsLabel"
+        android:layout_width="8dp"
+        android:layout_height="16dp"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginVertical="16dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:text="#"/>
+
+    <TextView
+        android:id="@+id/teamNameLabel"
+        android:layout_width="104dp"
+        android:layout_height="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="8dp"
+        app:layout_constraintStart_toEndOf="@id/positionStandingsLabel"
+        app:layout_constraintTop_toTopOf="@id/positionStandingsLabel"
+        app:layout_constraintBottom_toBottomOf="@id/positionStandingsLabel"
+        tools:text="Team"/>
+
+    <TextView
+        android:id="@+id/playedLabel"
+        android:layout_width="24dp"
+        android:layout_height="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="8dp"
+        app:layout_constraintStart_toEndOf="@id/teamNameLabel"
+        app:layout_constraintTop_toTopOf="@id/positionStandingsLabel"
+        app:layout_constraintBottom_toBottomOf="@id/positionStandingsLabel"
+        tools:text="P"/>
+
+    <TextView
+        android:id="@+id/wonLabel"
+        android:layout_width="24dp"
+        android:layout_height="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="8dp"
+        app:layout_constraintStart_toEndOf="@id/playedLabel"
+        app:layout_constraintTop_toTopOf="@id/positionStandingsLabel"
+        app:layout_constraintBottom_toBottomOf="@id/positionStandingsLabel"
+        tools:text="W"/>
+
+    <TextView
+        android:id="@+id/drawLabel"
+        android:layout_width="24dp"
+        android:layout_height="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="8dp"
+        app:layout_constraintStart_toEndOf="@id/wonLabel"
+        app:layout_constraintTop_toTopOf="@id/positionStandingsLabel"
+        app:layout_constraintBottom_toBottomOf="@id/positionStandingsLabel"
+        tools:text="D"/>
+
+    <TextView
+        android:id="@+id/lostLabel"
+        android:layout_width="24dp"
+        android:layout_height="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="8dp"
+        app:layout_constraintStart_toEndOf="@id/drawLabel"
+        app:layout_constraintTop_toTopOf="@id/positionStandingsLabel"
+        app:layout_constraintBottom_toBottomOf="@id/positionStandingsLabel"
+        tools:text="L"/>
+
+    <TextView
+        android:id="@+id/goalsLabel"
+        android:layout_width="40dp"
+        android:layout_height="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="8dp"
+        app:layout_constraintStart_toEndOf="@id/lostLabel"
+        app:layout_constraintTop_toTopOf="@id/positionStandingsLabel"
+        app:layout_constraintBottom_toBottomOf="@id/positionStandingsLabel"
+        tools:text="Goals"/>
+
+    <TextView
+        android:id="@+id/pointsLabel"
+        android:layout_width="24dp"
+        android:layout_height="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="8dp"
+        app:layout_constraintStart_toEndOf="@id/goalsLabel"
+        app:layout_constraintTop_toTopOf="@id/positionStandingsLabel"
+        app:layout_constraintBottom_toBottomOf="@id/positionStandingsLabel"
+        tools:text="PTS"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

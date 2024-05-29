@@ -2,6 +2,7 @@ package com.sofascore.minisofa.data.remote
 
 import com.sofascore.minisofa.data.event_models.EventApiResponse
 import com.sofascore.minisofa.data.event_models.EventResponse
+import com.sofascore.minisofa.data.event_models.StandingsResponse
 //import com.sofascore.minisofa.data.event_models.Incident
 //import com.sofascore.minisofa.data.event_models.Player
 //import com.sofascore.minisofa.data.event_models.PlayerDetails
@@ -29,7 +30,7 @@ interface ApiService {
     @GET("tournament/{id}/image")
     suspend fun getTournamentLogo(
         @Path("id") tournamentId: Int
-    ): retrofit2.Response<Void>
+    ): String
 
     @GET("tournament/{id}")
     suspend fun getTournamentDetails(
@@ -40,4 +41,15 @@ interface ApiService {
     suspend fun getTournamentsBySport(
         @Path("slug") slug: String
     ): List<Tournament>
+
+    @GET("tournament/{id}/events/{span}/{page}")
+    suspend fun getTournamentEvents(
+        @Path("id") tournamentId: Int,
+        @Path("span") span: String,
+        @Path("page") page: Int
+    ): List<EventApiResponse>
+
+    @GET("tournament/{id}/standings")
+    suspend fun getStandings(@Path("id") tournamentId: Int): List<StandingsResponse>
+
 }

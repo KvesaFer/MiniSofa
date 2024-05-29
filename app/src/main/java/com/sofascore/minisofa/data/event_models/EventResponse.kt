@@ -20,6 +20,26 @@ data class EventApiResponse(
     var tournamentCountry: String
 )
 
+data class StandingsResponse(
+    val id: Int,
+    val tournament: Tournament,
+    val type: String,
+    val sortedStandingsRows: List<StandingRow>
+)
+
+data class StandingRow(
+    val id: Int,
+    val team: Team,
+    val points: Int,
+    val scoresFor: Int,
+    val scoresAgainst: Int,
+    val played: Int,
+    val wins: Int,
+    val draws: Int,
+    val losses: Int,
+    val percentage: Int
+)
+
 data class Tournament(
     val id: Int,
     val name: String,
@@ -46,13 +66,25 @@ data class Country(
 )
 
 data class Score(
-    val total: Int,
-    val period2: Int
+    val current: Int? = null,
+    val halfTime: Int? = null
 )
 
 data class EventResponse(
     val events: List<EventApiResponse>
 )
+
+data class TeamStanding(
+    val position: Int,
+    val teamName: String,
+    val played: Int,
+    val won: Int,
+    val draw: Int,
+    val lost: Int,
+    val goals: String,
+    val points: Int
+)
+
 
 fun EventApiResponse.toEventInfo(): EventInfo {
     return EventInfo(
@@ -60,8 +92,8 @@ fun EventApiResponse.toEventInfo(): EventInfo {
         date = this.startDate.split("T")[0],
         homeName = this.homeTeam.name,
         awayName = this.awayTeam.name,
-        homeScore = this.homeScore.total,
-        awayScore = this.awayScore.total,
+        homeScore = this.homeScore.current ?: 0,
+        awayScore = this.awayScore.current ?: 0,
         status = this.status,
         sport = this.tournament.sport.name,
         tournamentId = this.tournament.id,
@@ -69,6 +101,7 @@ fun EventApiResponse.toEventInfo(): EventInfo {
         awayTeamCountryId = this.awayTeam.country.id,
         homeTeamLogo = "https://academy-backend.sofascore.dev/team/${this.homeTeam.id}/image",
         awayTeamLogo = "https://academy-backend.sofascore.dev/team/${this.awayTeam.id}/image",
-        startTime = this.startDate.split("T")[1].split("+")[0].substring(startIndex = 0, endIndex = 5)
+        startTime = this.startDate.split("T")[1].split("+")[0].substring(startIndex = 0, endIndex = 5),
+        round = this.round
     )
 }
