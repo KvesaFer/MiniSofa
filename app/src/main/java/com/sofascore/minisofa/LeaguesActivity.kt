@@ -34,6 +34,7 @@ class LeaguesActivity : AppCompatActivity() {
 
         setupRecyclerView()
         setupTabs()
+        setupClickListeners()
 
         viewModel.tournaments.observe(this) { tournaments ->
             Log.d("LeaguesActivity", "Observed tournaments: ${tournaments.size} items")
@@ -41,6 +42,14 @@ class LeaguesActivity : AppCompatActivity() {
         }
 
         loadLeagues("football") // Default load for football
+    }
+
+    private fun setupClickListeners() {
+        val backButton: ImageView = binding.toolbarLeagues.root.findViewById(R.id.backButton)
+        backButton.setOnClickListener{
+            Log.d("LeaguesActivity", "Finished; Back Button clicked")
+            finish()
+        }
     }
 
     private fun setupRecyclerView() {
