@@ -15,6 +15,7 @@ import com.sofascore.minisofa.data.local.entity.TournamentEntity
 import com.sofascore.minisofa.databinding.ActivityLeaguesBinding
 import com.sofascore.minisofa.ui.adapters.LeagueAdapter
 import com.sofascore.minisofa.ui.viewmodels.LeaguesViewModel
+import com.sofascore.minisofa.utils.SportType
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -44,7 +45,7 @@ class LeaguesActivity : AppCompatActivity() {
             leagueAdapter.submitList(tournaments)
         }
 
-        loadLeagues("football") //  by default
+        loadLeagues(SportType.FOOTBALL) //  by default
     }
 
     private fun setupClickListeners() {
@@ -85,10 +86,10 @@ class LeaguesActivity : AppCompatActivity() {
                 // Handle tab selection
                 tab?.let {
                     val sport = when (it.position) {
-                        0 -> "football"
-                        1 -> "basketball"
-                        2 -> "american-football"
-                        else -> "football"
+                        0 -> SportType.FOOTBALL
+                        1 -> SportType.BASKETBALL
+                        2 -> SportType.AMERICAN_FOOTBALL
+                        else -> SportType.FOOTBALL
                     }
                     loadLeagues(sport)
                 }
@@ -108,9 +109,9 @@ class LeaguesActivity : AppCompatActivity() {
         return view
     }
 
-    private fun loadLeagues(sportSlug: String) {
-        Log.d("LeaguesActivity", "Loading leagues for sport: $sportSlug")
-        viewModel.loadTournaments(sportSlug)
+    private fun loadLeagues(sportType: SportType) {
+        Log.d("LeaguesActivity", "Loading leagues for sport: ${sportType.apiName}")
+        viewModel.loadTournaments(sportType)
     }
 
     private fun onLeagueClicked(league: TournamentEntity) {

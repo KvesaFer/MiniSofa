@@ -15,6 +15,7 @@ import com.sofascore.minisofa.databinding.ActivityMainBinding
 import com.sofascore.minisofa.ui.adapters.DateAdapter
 import com.sofascore.minisofa.ui.adapters.EventAdapter
 import com.sofascore.minisofa.ui.viewmodels.MainViewModel
+import com.sofascore.minisofa.utils.SportType
 import dagger.hilt.android.AndroidEntryPoint
 import java.text.SimpleDateFormat
 import java.util.Calendar
@@ -74,10 +75,10 @@ class MainActivity : AppCompatActivity() {
                 // Handle tab selection
                 tab?.let {
                     val sport = when (it.position) {
-                        0 -> "football"
-                        1 -> "basketball"
-                        2 -> "american-football"
-                        else -> "football"
+                        0 -> SportType.FOOTBALL
+                        1 -> SportType.BASKETBALL
+                        2 -> SportType.AMERICAN_FOOTBALL
+                        else -> SportType.FOOTBALL
                     }
                     viewModel.setSport(sport)
                 }
@@ -166,7 +167,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun loadDefaultEvents() {
-        viewModel.setSport("football")
+        viewModel.setSport(SportType.FOOTBALL)
 
         val today = Calendar.getInstance().time
         val formattedToday = dateFormat.format(today)

@@ -19,11 +19,11 @@ class EventRepository @Inject constructor(
     private val countryDao: CountryDao,
     private val tournamentDao: TournamentDao
 ) {
-    suspend fun getEvents(sportSlug: String, date: String): List<EventInfo> {
-        Log.d("EventRepository", "getEvents called with sportSlug: $sportSlug, date: $date")
+    suspend fun getEvents(sportType: SportType, date: String): List<EventInfo> {
+        Log.d("EventRepository", "getEvents called with sportSlug: ${sportType.apiName}, date: $date")
 
         val eventsAPI = try {
-            apiService.getEvents(sportSlug, date)
+            apiService.getEvents(sportType.apiName, date)
         } catch (e: Exception) {
             Log.e("EventRepository", "Error fetching events from API: ${e.message}")
             return emptyList()
@@ -64,7 +64,7 @@ class EventRepository @Inject constructor(
 
         val eventsFromDb = eventDao.getEventsByDateAndSport(
             date,
-            sportSlug.replaceFirstChar { if (it.isLowerCase()) it.titlecase(Locale.ROOT) else it.toString() })
+            sportType.displayName)
         Log.d("EventRepository", "Fetched ${eventsFromDb.size} events from the database")
 
         return eventsFromDb
@@ -78,9 +78,9 @@ class EventRepository @Inject constructor(
         return countryDao.getCountryById(countryId)
     }
 
-    suspend fun getTournamentsBySport(sportSlug: String): List<TournamentEntity> {
+    suspend fun getTournamentsBySport(sportType: SportType): List<TournamentEntity> {
         val leagues = try {
-            apiService.getTournamentsBySport(sportSlug)
+            apiService.getTournamentsBySport(sportType.apiName)
         } catch (e: Exception) {
             Log.e("EventRepository", "Error fetching tournaments from API: ${e.message}")
             return emptyList()
@@ -96,7 +96,7 @@ class EventRepository @Inject constructor(
             )
         }
         tournamentDao.insertAll(leagues_db)
-        return tournamentDao.getTournamentsBySport(sportSlug.replaceFirstChar { if (it.isLowerCase()) it.titlecase(Locale.ROOT) else it.toString() })
+        return tournamentDao.getTournamentsBySport(sportType.displayName)
     }
 
     suspend fun getEventsForTournament(tournamentId: Int, span: String, page: Int): List<EventInfo> {

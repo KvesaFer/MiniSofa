@@ -7,6 +7,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.sofascore.minisofa.data.local.entity.EventInfo
 import com.sofascore.minisofa.data.repository.EventRepository
+import com.sofascore.minisofa.utils.SportType
 import dagger.hilt.android.lifecycle.HiltViewModel
 import java.text.SimpleDateFormat
 import java.util.Date
@@ -27,14 +28,14 @@ class MainViewModel @Inject constructor(
 ) : ViewModel() {
     private val dateFormat = SimpleDateFormat("yyyy-MM-dd", Locale.ENGLISH)
 
-    private val _sport = MutableLiveData("football")
+    private val _sport = MutableLiveData(SportType.FOOTBALL)
     private val _date = MutableLiveData(dateFormat.format(Date()))
     private val _flatEventList = MutableLiveData<List<Any>>()
 
     val flatEventList: LiveData<List<Any>> get() = _flatEventList
 
-    fun setSport(sport: String) {
-        _sport.value = sport
+    fun setSport(sportType: SportType) {
+        _sport.value = sportType
         fetchEvents()
     }
 

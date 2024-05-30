@@ -229,6 +229,7 @@ class CountryCodes {
         "England" to "GB",
         "USA Minor Outlying Islands" to "UM",
         "United States" to "US",
+        "USA" to "US",
         "Uruguay" to "UY",
         "Uzbekistan" to "UZ",
         "Holy See (Vatican City State)" to "VA",
