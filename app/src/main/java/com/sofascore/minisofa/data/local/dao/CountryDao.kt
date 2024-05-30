@@ -13,4 +13,7 @@ interface CountryDao {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertAll(countries: List<CountryEntity>)
+
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    suspend fun insert(country: CountryEntity)
 }

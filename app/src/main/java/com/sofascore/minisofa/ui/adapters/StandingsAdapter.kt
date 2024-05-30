@@ -6,6 +6,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
+import com.sofascore.minisofa.R
 import com.sofascore.minisofa.data.event_models.TeamStanding
 import com.sofascore.minisofa.databinding.ItemStandingsBinding
 
@@ -26,16 +27,34 @@ class StandingsAdapter : ListAdapter<TeamStanding, StandingsAdapter.StandingsVie
         RecyclerView.ViewHolder(binding.root) {
 
         fun bind(standing: TeamStanding) {
-            Log.d("StandingsAdapter", "Binding item at position: ${standing.position}")
-            binding.positionStandingsLabel.text =standing.position.toString()
+            val textColor = binding.root.context.getColor(R.color.on_surface_on_surface_lv_1)
+
+            binding.positionStandingsLabel.text = standing.position.toString()
+            binding.positionStandingsLabel.background = binding.root.context.getDrawable(R.drawable.circle_background)
+            binding.positionStandingsLabel.setTextColor(textColor)
+
             binding.teamNameLabel.text = standing.teamName
+            binding.teamNameLabel.setTextColor(textColor)
+
             binding.playedLabel.text = standing.played.toString()
+            binding.playedLabel.setTextColor(textColor)
+
             binding.wonLabel.text = standing.won.toString()
+            binding.wonLabel.setTextColor(textColor)
+
             binding.drawLabel.text = standing.draw.toString()
+            binding.drawLabel.setTextColor(textColor)
+
             binding.lostLabel.text = standing.lost.toString()
+            binding.lostLabel.setTextColor(textColor)
+
             binding.goalsLabel.text = standing.goals
+            binding.goalsLabel.setTextColor(textColor)
+
             binding.pointsLabel.text = standing.points.toString()
+            binding.pointsLabel.setTextColor(textColor)
         }
+
     }
 
     class StandingsDiffCallback : DiffUtil.ItemCallback<TeamStanding>() {

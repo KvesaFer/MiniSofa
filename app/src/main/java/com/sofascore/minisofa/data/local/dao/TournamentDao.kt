@@ -15,6 +15,9 @@ interface TournamentDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertAll(tournaments: List<TournamentEntity>)
 
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    suspend fun insert(tournaments: TournamentEntity)
+
     @Query("SELECT * FROM tournaments WHERE sport = :sport")
     suspend fun getTournamentsBySport(sport: String) : List<TournamentEntity>
 }

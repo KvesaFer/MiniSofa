@@ -76,7 +76,7 @@ class MainActivity : AppCompatActivity() {
                     val sport = when (it.position) {
                         0 -> "football"
                         1 -> "basketball"
-                        2 -> "american_football"
+                        2 -> "american-football"
                         else -> "football"
                     }
                     viewModel.setSport(sport)

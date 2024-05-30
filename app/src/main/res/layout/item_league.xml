@@ -19,6 +19,7 @@
     
     <TextView
         android:id="@+id/tw_league_name"
+        style="@style/Headline3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginVertical="12dp"
@@ -26,6 +27,7 @@
         app:layout_constraintTop_toTopOf="@id/iw_league_logo"
         app:layout_constraintBottom_toBottomOf="@id/iw_league_logo"
         app:layout_constraintStart_toEndOf="@id/iw_league_logo"
+        android:textColor="@color/on_surface_on_surface_lv_1"
         tools:text="Bundesliga"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

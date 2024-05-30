@@ -25,6 +25,7 @@ class StandingsViewModel @Inject constructor(
                 val standings = repository.getStandings(tournamentId).sortedByDescending { it.points }
                 var ctr = 1
                 for (row in standings) {
+                    row.teamName = shortenTeamName(row.teamName)
                     row.position = ctr
                     ctr++
                 }
@@ -35,4 +36,28 @@ class StandingsViewModel @Inject constructor(
             }
         }
     }
+
+    private fun shortenTeamName(teamName: String): String {
+        return if (teamName.length > 12) {
+            val parts = teamName.split(" ")
+            if (parts.size < 2) {
+                return teamName.substring(0,10) + "."
+            }
+            val shortenedName = StringBuilder()
+
+            for (i in 0 until parts.size - 1) {
+                if (parts[i].length > 3) {
+                    shortenedName.append(parts[i].substring(0, 3)).append(". ")
+                } else {
+                    shortenedName.append(parts[i]).append(" ")
+                }
+            }
+
+            shortenedName.append(parts.last())
+            shortenedName.toString()
+        } else {
+            teamName
+        }
+    }
+
 }

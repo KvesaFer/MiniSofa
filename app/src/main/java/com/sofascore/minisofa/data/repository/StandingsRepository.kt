@@ -8,7 +8,7 @@ class StandingsRepository @Inject constructor(
     private val apiService: ApiService
 ) {
     suspend fun getStandings(tournamentId: Int): List<TeamStanding> {
-        val response = apiService.getStandings(tournamentId)
+        val response = apiService.getStandings(tournamentId).filter { it.type == "total" }
 
         return response.flatMap { it.sortedStandingsRows.map { row ->
             TeamStanding(

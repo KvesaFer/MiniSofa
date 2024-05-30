@@ -44,7 +44,7 @@ class LeaguesActivity : AppCompatActivity() {
             leagueAdapter.submitList(tournaments)
         }
 
-        loadLeagues("football") // Default load for football
+        loadLeagues("football") //  by default
     }
 
     private fun setupClickListeners() {
@@ -56,7 +56,6 @@ class LeaguesActivity : AppCompatActivity() {
     }
 
     private fun setupRecyclerView() {
-        Log.d("LeaguesActivity", "Setting up RecyclerView")
         leagueAdapter = LeagueAdapter { league ->
             onLeagueClicked(league)
         }
@@ -88,7 +87,7 @@ class LeaguesActivity : AppCompatActivity() {
                     val sport = when (it.position) {
                         0 -> "football"
                         1 -> "basketball"
-                        2 -> "american_football"
+                        2 -> "american-football"
                         else -> "football"
                     }
                     loadLeagues(sport)

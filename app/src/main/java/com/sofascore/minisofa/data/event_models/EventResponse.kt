@@ -76,7 +76,7 @@ data class EventResponse(
 data class TeamStanding(
     val id: Int,
     var position:Int = 0,
-    val teamName: String,
+    var teamName: String,
     val played: Int,
     val won: Int,
     val draw: Int,

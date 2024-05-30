@@ -5,6 +5,7 @@ import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
+import androidx.room.Transaction
 import com.sofascore.minisofa.data.local.entity.EventInfo
 
 @Dao
@@ -17,4 +18,5 @@ interface EventDao {
 
     @Query("DELETE FROM events WHERE date = :date AND sport = :sport")
     suspend fun deleteEventsByDateAndSport(date: String, sport: String)
+
 }
