@@ -13,7 +13,9 @@
         android:layout_height="wrap_content"
         android:padding="12dp"
         android:layout_marginStart="4dp"
-        android:src="@drawable/ic_back_arrow" />
+        app:tint="@color/surface_surface_1"
+        android:src="@drawable/ic_back_arrow"
+        android:contentDescription="back button"/>
 
     <TextView
         android:id="@+id/tw_leagues"

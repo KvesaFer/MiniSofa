@@ -18,7 +18,10 @@ class LeaguesViewModel @Inject constructor(
 ) : ViewModel() {
 
     private val _tournaments = MutableLiveData<List<TournamentEntity>>()
+    private val _sportType = MutableLiveData<SportType>()
     val tournaments: LiveData<List<TournamentEntity>> get() = _tournaments
+    val sportType: MutableLiveData<SportType> get() = _sportType
+
 
     fun loadTournaments(sportType: SportType) {
         Log.d("LeaguesViewModel", "Loading tournaments for sport: ${sportType.apiName}")
@@ -27,6 +30,7 @@ class LeaguesViewModel @Inject constructor(
                 val leagues = repository.getTournamentsBySport(sportType)
                 Log.d("LeaguesViewModel", "Fetched ${leagues.size} tournaments from repository")
                 _tournaments.postValue(leagues)
+                _sportType.postValue(sportType)
             } catch (e: Exception) {
                 Log.e("LeaguesViewModel", "Error loading tournaments: ${e.message}", e)
             }

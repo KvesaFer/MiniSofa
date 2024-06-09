@@ -17,6 +17,7 @@
 
         <activity
             android:name=".MainActivity"
+            android:configChanges="uiMode"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -24,8 +25,27 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".LeaguesActivity" android:exported="true" />
-        <activity android:name=".LeagueDetailsActivity" android:exported="true" />
+        <activity
+            android:name=".LeaguesActivity"
+            android:exported="true"
+            android:configChanges="uiMode" />
+        <activity
+            android:name=".LeagueDetailsActivity"
+            android:exported="true"
+            android:configChanges="uiMode" />
+        <activity
+            android:name=".SettingsActivity"
+            android:exported="true"
+            android:configChanges="uiMode" />
+
+        <activity
+            android:name=".EventDetailsActivity"
+            android:exported="true"
+            android:configChanges="uiMode" />
+        <activity
+            android:name=".PlayerDetailsActivity"
+            android:exported="true"
+            android:configChanges="uiMode" />
 
     </application>
 

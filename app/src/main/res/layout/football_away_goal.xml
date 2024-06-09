@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="56dp"
+    android:background="@color/surface_surface_1"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <ImageView
+        android:id="@+id/incidentLogo"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginTop="8dp"
+        android:contentDescription="@string/incident"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:src="@drawable/ic_football" />
+
+    <TextView
+        android:id="@+id/minuteOfIncident"
+        android:layout_width="40dp"
+        android:layout_height="16dp"
+        app:layout_constraintStart_toStartOf="@id/incidentLogo"
+        app:layout_constraintEnd_toEndOf="@id/incidentLogo"
+        app:layout_constraintTop_toBottomOf="@id/incidentLogo"
+        android:gravity="center"
+        tools:text="8'" />
+
+    <View
+        android:id="@+id/separator"
+        android:layout_width="1dp"
+        android:layout_height="match_parent"
+        android:layout_marginEnd="15dp"
+        android:layout_marginVertical="8dp"
+        app:layout_constraintEnd_toStartOf="@id/incidentLogo"
+        app:layout_constraintTop_toTopOf="@id/incidentLogo"
+        android:background="@color/on_surface_on_surface_lv_4">
+    </View>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/gameScore"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        app:layout_constraintEnd_toStartOf="@id/separator"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent" >
+
+        <TextView
+            style="@style/Headline1"
+            android:id="@+id/homeTeamScore"
+            android:layout_width="32dp"
+            android:layout_height="28dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:textColor="@color/on_surface_on_surface_lv_1"
+            android:gravity="end"
+            tools:text="0"
+            />
+
+        <TextView
+            style="@style/Headline1"
+            android:id="@+id/scoreSeparator"
+            android:layout_width="12dp"
+            android:layout_height="28dp"
+            app:layout_constraintEnd_toStartOf="@id/awayTeamScore"
+            app:layout_constraintStart_toEndOf="@id/homeTeamScore"
+            app:layout_constraintTop_toTopOf="@id/homeTeamScore"
+            app:layout_constraintBottom_toBottomOf="@id/homeTeamScore"
+            android:gravity="center_horizontal"
+            android:textColor="@color/on_surface_on_surface_lv_1"
+            android:text="@string/separator"
+            />
+
+        <TextView
+            style="@style/Headline1"
+            android:id="@+id/awayTeamScore"
+            android:layout_width="32dp"
+            android:layout_height="28dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/homeTeamScore"
+            app:layout_constraintBottom_toBottomOf="@id/homeTeamScore"
+            android:textColor="@color/on_surface_on_surface_lv_1"
+            android:text="@string/_1"
+            />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <TextView
+        style="@style/Body"
+        android:id="@+id/playerName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="12dp"
+        app:layout_constraintEnd_toStartOf="@id/gameScore"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginVertical="4dp"
+        android:textColor="@color/on_surface_on_surface_lv_1"
+        tools:text="Cristiano Ronaldo" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

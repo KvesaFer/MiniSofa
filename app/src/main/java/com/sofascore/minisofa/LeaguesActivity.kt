@@ -9,12 +9,14 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatDelegate
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.material.tabs.TabLayout
 import com.sofascore.minisofa.data.local.entity.TournamentEntity
 import com.sofascore.minisofa.databinding.ActivityLeaguesBinding
 import com.sofascore.minisofa.ui.adapters.LeagueAdapter
 import com.sofascore.minisofa.ui.viewmodels.LeaguesViewModel
+import com.sofascore.minisofa.utils.SettingsManager
 import com.sofascore.minisofa.utils.SportType
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -24,8 +26,13 @@ class LeaguesActivity : AppCompatActivity() {
     private lateinit var binding: ActivityLeaguesBinding
     private lateinit var leagueAdapter: LeagueAdapter
     private val viewModel: LeaguesViewModel by viewModels()
-
+    private var selectedSportType: SportType = SportType.FOOTBALL
     override fun onCreate(savedInstanceState: Bundle?) {
+        if (SettingsManager.isDarkTheme(this)) {
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
+        } else {
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
+        }
         super.onCreate(savedInstanceState)
         Log.d("LeaguesActivity", "onCreate called")
         binding = ActivityLeaguesBinding.inflate(layoutInflater)
@@ -45,7 +52,11 @@ class LeaguesActivity : AppCompatActivity() {
             leagueAdapter.submitList(tournaments)
         }
 
-        loadLeagues(SportType.FOOTBALL) //  by default
+        viewModel.sportType.observe(this) {sportType ->
+            selectedSportType = sportType
+        }
+
+        loadLeagues(selectedSportType) //  by default
     }
 
     private fun setupClickListeners() {
@@ -85,13 +96,13 @@ class LeaguesActivity : AppCompatActivity() {
             override fun onTabSelected(tab: TabLayout.Tab?) {
                 // Handle tab selection
                 tab?.let {
-                    val sport = when (it.position) {
+                    selectedSportType = when (it.position) {
                         0 -> SportType.FOOTBALL
                         1 -> SportType.BASKETBALL
                         2 -> SportType.AMERICAN_FOOTBALL
                         else -> SportType.FOOTBALL
                     }
-                    loadLeagues(sport)
+                    loadLeagues(selectedSportType)
                 }
             }
 
@@ -119,6 +130,7 @@ class LeaguesActivity : AppCompatActivity() {
         val intent = Intent(this, LeagueDetailsActivity::class.java).apply {
             putExtra("leagueId", league.id)
             putExtra("leagueName", league.name)
+            putExtra("SPORT_TYPE", selectedSportType.apiName)
         }
         startActivity(intent)
     }

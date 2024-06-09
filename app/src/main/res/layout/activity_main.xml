@@ -20,12 +20,12 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/toolbar"
-        app:tabIndicatorColor="@color/white"
+        app:tabIndicatorColor="@color/surface_surface_1"
         app:tabIndicatorHeight="4dp"
         app:tabIndicatorFullWidth="false"
         app:tabPaddingStart="8dp"
         app:tabPaddingEnd="8dp"
-        android:background="@color/color_primary_default" />
+        android:background="@color/color_primary_default"/>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/dateRecyclerView"
@@ -34,7 +34,8 @@
         app:layout_constraintTop_toBottomOf="@id/tabLayout"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:background="@color/color_primary_variant" />
+        android:background="@color/color_primary_variant"
+        />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/listSection"
@@ -81,5 +82,17 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
+    <TextView
+        android:id="@+id/emptyStateMessage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="@string/no_events_today"
+        android:textColor="@color/on_surface_on_surface_lv_1"
+        android:visibility="gone"
+        app:layout_constraintTop_toBottomOf="@id/listSection"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

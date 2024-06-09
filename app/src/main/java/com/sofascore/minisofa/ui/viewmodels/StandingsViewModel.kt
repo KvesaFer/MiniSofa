@@ -7,8 +7,10 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.sofascore.minisofa.data.event_models.TeamStanding
 import com.sofascore.minisofa.data.repository.StandingsRepository
+import com.sofascore.minisofa.utils.SportType
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
+import kotlinx.coroutines.async
 import kotlinx.coroutines.launch
 
 @HiltViewModel
@@ -19,21 +21,40 @@ class StandingsViewModel @Inject constructor(
     private val _standings = MutableLiveData<List<TeamStanding>>()
     val standings: LiveData<List<TeamStanding>> get() = _standings
 
-    fun loadStandings(tournamentId: Int) {
+    fun loadStandings(tournamentId: Int, sportType: SportType) {
         viewModelScope.launch {
             try {
-                val standings = repository.getStandings(tournamentId).sortedByDescending { it.points }
+                val standings = repository.getStandings(tournamentId, sportType).sortedByDescending { it.points }
                 var ctr = 1
                 for (row in standings) {
                     row.teamName = shortenTeamName(row.teamName)
                     row.position = ctr
                     ctr++
                 }
-                Log.d("StandingsViewModel", "Fteched standings: $standings")
+
+                if (sportType == SportType.BASKETBALL) {
+                    calculateGamesBehind(standings)
+                    val streakJobs = standings.map { team ->
+                        async {
+                            Log.d("StandingsViewModel", "Fetching streak for team id: ${team.id}")
+                            team.streak = repository.fetchTeamStreak(team.id)
+                        }
+                    }
+                    streakJobs.forEach { it.await() }
+                }
+
+                Log.d("StandingsViewModel", "Fteched standings: $standings, sportType: $sportType")
                 _standings.postValue(standings)
             } catch (e: Exception) {
                 Log.e("StandingsViewModel", "Error loading standings: ${e.message}", e)
             }
+        }
+    }
+
+    private fun calculateGamesBehind(standings: List<TeamStanding>) {
+        val leader = standings.firstOrNull() ?: return
+        standings.forEach { team ->
+            team.gb = ((leader.won - team.won) + (team.lost - leader.lost)) / 2.0
         }
     }
 

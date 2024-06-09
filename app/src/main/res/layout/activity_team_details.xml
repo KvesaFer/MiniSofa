@@ -1,0 +1,515 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/surface_surface_1"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <include
+        android:id="@+id/headerTeamDetails"
+        layout="@layout/toolbar_league_details"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        />
+
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/tabLayout"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/headerTeamDetails"
+        app:tabIndicatorColor="@color/surface_surface_1"
+        app:tabIndicatorHeight="4dp"
+        android:background="@color/color_primary_default"
+        app:tabTextColor="@color/surface_surface_1"/>
+
+    <LinearLayout
+        android:id="@+id/twTeamInfo"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:background="@color/surface_surface_1"
+        android:gravity="center"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tabLayout" >
+
+        <TextView
+            style="@style/Headline2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/on_surface_on_surface_lv_1"
+            android:text="@string/team_info"
+            android:layout_marginBottom="12dp"
+            android:gravity="center_horizontal"
+            android:layout_marginTop="16dp"/>
+    </LinearLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/coachInfo"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/twTeamInfo" >
+
+        <ImageView
+            android:id="@+id/coachPhoto"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:src="@drawable/clubs_svgrepo_com"
+            />
+        
+        <TextView
+            android:id="@+id/coachName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textStyle="normal"
+            android:textColor="@color/on_surface_on_surface_lv_1"
+            app:layout_constraintStart_toEndOf="@id/coachPhoto"
+            app:layout_constraintTop_toTopOf="@id/coachPhoto"
+            android:layout_marginTop="2dp"
+            android:layout_marginStart="16dp"
+            tools:text="Coach: Hans Zimmer"
+            />
+
+        <ImageView
+            android:id="@+id/leagueCountryLogo"
+            android:layout_width="16dp"
+            android:layout_height="16dp"
+            android:layout_marginTop="4dp"
+            app:layout_constraintStart_toStartOf="@id/coachName"
+            app:layout_constraintTop_toBottomOf="@id/coachName"
+            tools:src="@drawable/clubs_svgrepo_com"/>
+        
+        <TextView
+            style="@style/Assistive"
+            android:id="@+id/coachCountryName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/on_surface_on_surface_lv_2"
+            android:layout_marginStart="4dp"
+            app:layout_constraintStart_toEndOf="@id/leagueCountryLogo"
+            app:layout_constraintTop_toTopOf="@id/leagueCountryLogo"
+            app:layout_constraintBottom_toBottomOf="@id/leagueCountryLogo"
+            tools:text="Germany" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <View
+        android:id="@+id/separatorAfterCoachInfo"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/on_surface_on_surface_lv_4"
+        android:layout_marginTop="7dp"
+        app:layout_constraintTop_toBottomOf="@id/coachInfo">
+    </View>
+
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/teamStats"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/separatorAfterCoachInfo"
+        android:padding="16dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/teamInfoLayout"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/foreignInfoLayout"
+            app:layout_constraintWidth_percent="0.5">
+
+            <ImageView
+                android:id="@+id/teamIcon"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:src="@drawable/ic_team"
+                android:contentDescription="@string/total_players"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginTop="8dp" />
+
+            <TextView
+                android:id="@+id/teamCount"
+                style="@style/Headline3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="24"
+                android:layout_marginTop="8dp"
+                android:textColor="@color/color_primary_default"
+                android:gravity="center"
+                app:layout_constraintTop_toBottomOf="@id/teamIcon"
+                app:layout_constraintStart_toStartOf="@id/teamIcon"
+                app:layout_constraintEnd_toEndOf="@id/teamIcon" />
+
+            <TextView
+                android:id="@+id/teamLabel"
+                style="@style/Micro"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/total_players"
+                android:gravity="center"
+                android:layout_marginTop="4dp"
+                app:layout_constraintTop_toBottomOf="@id/teamCount"
+                app:layout_constraintStart_toStartOf="@id/teamCount"
+                app:layout_constraintEnd_toEndOf="@id/teamCount" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/foreignInfoLayout"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toEndOf="@id/teamInfoLayout"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintWidth_percent="0.5">
+
+            <ImageView
+                android:id="@+id/foreignIcon"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:src="@drawable/ic_pie_chart"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginTop="8dp" />
+
+            <TextView
+                android:id="@+id/foreignCount"
+                style="@style/Headline3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="10"
+                android:textColor="@color/color_primary_default"
+                android:gravity="center"
+                android:layout_marginTop="8dp"
+                app:layout_constraintTop_toBottomOf="@id/foreignIcon"
+                app:layout_constraintStart_toStartOf="@id/foreignIcon"
+                app:layout_constraintEnd_toEndOf="@id/foreignIcon" />
+
+            <TextView
+                android:id="@+id/foreignLabel"
+                style="@style/Micro"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/foreign_players"
+                android:textColor="@color/on_surface_on_surface_lv_2"
+                android:gravity="center"
+                android:layout_marginTop="4dp"
+                app:layout_constraintTop_toBottomOf="@id/foreignCount"
+                app:layout_constraintStart_toStartOf="@id/foreignCount"
+                app:layout_constraintEnd_toEndOf="@id/foreignCount" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <View
+        android:id="@+id/separatorAfterTeamStats"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/on_surface_on_surface_lv_4"
+        android:layout_marginTop="7dp"
+        app:layout_constraintTop_toBottomOf="@id/teamStats">
+    </View>
+
+
+    <TextView
+        style="@style/Headline2"
+        android:id="@+id/tournamentsTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/separatorAfterTeamStats"
+        android:textColor="@color/on_surface_on_surface_lv_1"
+        android:text="@string/tournaments"
+        android:layout_marginBottom="12dp"
+        android:layout_marginTop="16dp"
+        android:gravity="center_horizontal" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/tournament1"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/tournamentsTitle"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/tournament2"
+        android:layout_marginEnd="8dp">
+
+        <ImageView
+            android:id="@+id/tournament1Icon"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            tools:src="@drawable/clubs_svgrepo_com"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="8dp"/>
+
+        <TextView
+            style="@style/Micro"
+            android:id="@+id/tournament1Name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="UEFA Champions League"
+            android:textColor="@color/on_surface_on_surface_lv_2"
+            android:gravity="center"
+            app:layout_constraintTop_toBottomOf="@id/tournament1Icon"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="4dp"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/tournament2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="@id/tournament1"
+        app:layout_constraintBottom_toBottomOf="@id/tournament1"
+        app:layout_constraintStart_toEndOf="@id/tournament1"
+        app:layout_constraintEnd_toStartOf="@id/tournament3"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp">
+
+        <ImageView
+            android:id="@+id/tournament2Icon"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            tools:src="@drawable/clubs_svgrepo_com"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="8dp"/>
+
+        <TextView
+            android:id="@+id/tournament2Name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="LaLiga"
+            android:textColor="@color/on_surface_on_surface_lv_2"
+            style="@style/Micro"
+            android:gravity="center"
+            app:layout_constraintTop_toBottomOf="@id/tournament2Icon"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="4dp"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/tournament3"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="@id/tournament1"
+        app:layout_constraintBottom_toBottomOf="@id/tournament1"
+        app:layout_constraintStart_toEndOf="@id/tournament2"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginStart="8dp">
+
+        <ImageView
+            android:id="@+id/tournament3Icon"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            tools:src="@drawable/clubs_svgrepo_com"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="8dp"/>
+
+        <TextView
+            android:id="@+id/tournament3Name"
+            style="@style/Micro"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="Copa Del Rey"
+            android:textColor="@color/on_surface_on_surface_lv_2"
+            android:gravity="center"
+            app:layout_constraintTop_toBottomOf="@id/tournament3Icon"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="4dp"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/tournament4"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/tournament1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/tournament5"
+        android:layout_marginEnd="8dp"
+        android:layout_marginTop="16dp">
+
+        <ImageView
+            android:id="@+id/tournament4Icon"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            tools:src="@drawable/clubs_svgrepo_com"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="8dp"/>
+
+        <TextView
+            style="@style/Micro"
+            android:id="@+id/tournament4Name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="UEFA Europa League"
+            android:textColor="@color/on_surface_on_surface_lv_2"
+            android:gravity="center"
+            app:layout_constraintTop_toBottomOf="@id/tournament4Icon"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="4dp"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/tournament5"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="@id/tournament4"
+        app:layout_constraintBottom_toBottomOf="@id/tournament4"
+        app:layout_constraintStart_toEndOf="@id/tournament4"
+        app:layout_constraintEnd_toStartOf="@id/tournament6"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp">
+
+        <ImageView
+            android:id="@+id/tournament5Icon"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            tools:src="@drawable/clubs_svgrepo_com"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="8dp"/>
+
+        <TextView
+            android:id="@+id/tournament5Name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="UEFA Champions League"
+            android:textColor="@color/on_surface_on_surface_lv_2"
+            style="@style/Micro"
+            android:gravity="center"
+            app:layout_constraintTop_toBottomOf="@id/tournament5Icon"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="4dp"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/tournament6"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="@id/tournament4"
+        app:layout_constraintBottom_toBottomOf="@id/tournament4"
+        app:layout_constraintStart_toEndOf="@id/tournament5"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginStart="8dp">
+
+        <ImageView
+            android:id="@+id/tournament6Icon"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            tools:src="@drawable/clubs_svgrepo_com"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="8dp"/>
+
+        <TextView
+            android:id="@+id/tournament6Name"
+            style="@style/Micro"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="Copa Del Rey"
+            android:textColor="@color/on_surface_on_surface_lv_2"
+            android:gravity="center"
+            app:layout_constraintTop_toBottomOf="@id/tournament6Icon"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="4dp"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <View
+        android:id="@+id/separatorAfterTournaments"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/on_surface_on_surface_lv_4"
+        android:layout_marginTop="7dp"
+        app:layout_constraintTop_toBottomOf="@id/tournament5">
+    </View>
+
+    <TextView
+        android:id="@+id/twVenue"
+        style="@style/Headline2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/venue"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="16dp"
+        android:textColor="@color/on_surface_on_surface_lv_1"
+        app:layout_constraintTop_toBottomOf="@id/separatorAfterTournaments"/>
+
+    <TextView
+        style="@style/Body"
+        android:id="@+id/twStadium"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/twVenue"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="16dp"
+        android:text="@string/stadium"
+        android:textColor="@color/on_surface_on_surface_lv_1" />
+
+    <TextView
+        style="@style/Body"
+        android:id="@+id/twStadiumName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/twStadium"
+        app:layout_constraintBottom_toBottomOf="@id/twStadium"
+        android:layout_marginEnd="16dp"
+        tools:text="Spotify Camp Nou"
+        android:textColor="@color/on_surface_on_surface_lv_1" />
+
+    <View
+        android:id="@+id/separatorAfterVenue"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/on_surface_on_surface_lv_4"
+        android:layout_marginTop="7dp"
+        app:layout_constraintTop_toBottomOf="@id/twStadium">
+    </View>
+
+    <TextView
+        android:id="@+id/twNextMatch"
+        style="@style/Headline2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/next_match"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="16dp"
+        android:textColor="@color/on_surface_on_surface_lv_1"
+        app:layout_constraintTop_toBottomOf="@id/separatorAfterVenue"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/twNextMatch"
+        app:layout_constraintBottom_toBottomOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>

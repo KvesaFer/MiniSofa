@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.sofascore.minisofa.databinding.FragmentStandingsBinding
 import com.sofascore.minisofa.ui.adapters.StandingsAdapter
 import com.sofascore.minisofa.ui.viewmodels.StandingsViewModel
+import com.sofascore.minisofa.utils.SportType
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -20,9 +21,17 @@ class StandingsFragment : Fragment() {
     private lateinit var binding: FragmentStandingsBinding
     private lateinit var standingsAdapter: StandingsAdapter
     private var tournamentId: Int = 0
+    private lateinit var sportType: SportType
 
     companion object {
         private const val TOURNAMENT_ID_KEY = "TOURNAMENT_ID"
+        private const val SPORT_TYPE_KEY = "SPORT_TYPE"
+    }
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        Log.d("StandingsFragment", "onCreate called")
+        initializeArguments()
     }
 
     override fun onCreateView(
@@ -33,11 +42,9 @@ class StandingsFragment : Fragment() {
         binding = FragmentStandingsBinding.inflate(inflater, container, false)
         return binding.root
     }
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         Log.d("StandingsFragment", "onViewCreated called")
-        initializeTournamentId()
         if (tournamentId == 0) return
 
         setupRecyclerView()
@@ -45,16 +52,18 @@ class StandingsFragment : Fragment() {
         loadStandings()
     }
 
-    private fun initializeTournamentId() {
+    private fun initializeArguments() {
         arguments?.let {
             tournamentId = it.getInt(TOURNAMENT_ID_KEY, 0)
+            val sportTypeString = it.getString(SPORT_TYPE_KEY, "football")
+            Log.d("StandingsFragment", "Sport Type String: $sportTypeString")
+            sportType = SportType.fromApiName(sportTypeString) ?: SportType.FOOTBALL
         }
-        Log.d("StandingsFragment", "Tournament ID: $tournamentId")
+        Log.d("StandingsFragment", "Tournament ID: $tournamentId, SportType: $sportType")
     }
 
     private fun setupRecyclerView() {
-        Log.d("StandingsFragment", "Setting up RecyclerView")
-        standingsAdapter = StandingsAdapter()
+        standingsAdapter = StandingsAdapter(sportType)
         binding.recyclerViewStandings.apply {
             adapter = standingsAdapter
             layoutManager = LinearLayoutManager(context)
@@ -69,8 +78,7 @@ class StandingsFragment : Fragment() {
     }
 
     private fun loadStandings() {
-        val tournamentId = arguments?.getInt(TOURNAMENT_ID_KEY) ?: return
-        Log.d("StandingsFragment", "Loading standings for tournament ID: $tournamentId")
-        viewModel.loadStandings(tournamentId)
+        Log.d("StandingsFragment", "Loading standings for tournament ID: $tournamentId, SportType: $sportType")
+        viewModel.loadStandings(tournamentId, sportType)
     }
 }

@@ -9,12 +9,14 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatDelegate
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.material.tabs.TabLayout
 import com.sofascore.minisofa.databinding.ActivityMainBinding
 import com.sofascore.minisofa.ui.adapters.DateAdapter
 import com.sofascore.minisofa.ui.adapters.EventAdapter
 import com.sofascore.minisofa.ui.viewmodels.MainViewModel
+import com.sofascore.minisofa.utils.SettingsManager
 import com.sofascore.minisofa.utils.SportType
 import dagger.hilt.android.AndroidEntryPoint
 import java.text.SimpleDateFormat
@@ -30,9 +32,13 @@ class MainActivity : AppCompatActivity() {
     private lateinit var eventAdapter: EventAdapter
     private lateinit var dateAdapter: DateAdapter
     private val dateFormat = SimpleDateFormat("yyyy-MM-dd", Locale.ENGLISH)
-    private val displayDateFormat = SimpleDateFormat("EEE, dd.MM.yyyy.", Locale.ENGLISH)
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        if (SettingsManager.isDarkTheme(this)) {
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
+        } else {
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
+        }
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
@@ -52,7 +58,9 @@ class MainActivity : AppCompatActivity() {
             startActivity(Intent(this, LeaguesActivity::class.java))
         }
 
-//        binding.toolbar.actionSettings() { TODO dodaj settingse}
+        binding.toolbar.actionSettings.setOnClickListener() {
+            startActivity(Intent(this, SettingsActivity::class.java))
+        }
     }
 
     private fun setupSportTabs() {
@@ -141,9 +149,11 @@ class MainActivity : AppCompatActivity() {
                 Log.d("MainActivity", "Received events: $events")
                 eventAdapter.submitList(events)
                 setNumberOfEvents(events.size)
+                binding.emptyStateMessage.visibility = if (events.isEmpty()) View.VISIBLE else View.GONE
             } else {
                 Log.d("MainActivity", "No events found")
                 setNumberOfEvents(0)
+                binding.emptyStateMessage.visibility = View.VISIBLE
             }
         }
     }
@@ -153,6 +163,11 @@ class MainActivity : AppCompatActivity() {
         val sectionDate = if (dateFormat.format(date) == dateFormat.format(today)) {
             "Today"
         } else {
+            val displayDateFormat = if (SettingsManager.isEUDateFormat(this)) {
+                SimpleDateFormat("EEE, dd.MM.yyyy.", Locale.ENGLISH)
+            } else {
+                SimpleDateFormat("EEE, MM-dd-yyyy.", Locale.ENGLISH)
+            }
             displayDateFormat.format(date)
         }
         setDateListSection(sectionDate)

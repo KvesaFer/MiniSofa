@@ -8,6 +8,7 @@ import android.util.Log
 import android.widget.ImageView
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatDelegate
 import androidx.fragment.app.FragmentActivity
 import androidx.viewpager2.adapter.FragmentStateAdapter
 import com.bumptech.glide.Glide
@@ -17,6 +18,8 @@ import com.sofascore.minisofa.data.local.entity.TournamentEntity
 import com.sofascore.minisofa.databinding.ActivityLeagueDetailsBinding
 import com.sofascore.minisofa.ui.viewmodels.LeagueDetailsViewModel
 import com.sofascore.minisofa.utils.CountryCodes
+import com.sofascore.minisofa.utils.SettingsManager
+import com.sofascore.minisofa.utils.SportType
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -27,6 +30,11 @@ class LeagueDetailsActivity : AppCompatActivity() {
     private val countryCodes = CountryCodes()
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        if (SettingsManager.isDarkTheme(this)) {
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
+        } else {
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
+        }
         super.onCreate(savedInstanceState)
         Log.d("LeagueDetailsActivity", "onCreate called")
         binding = ActivityLeagueDetailsBinding.inflate(layoutInflater)
@@ -63,7 +71,9 @@ class LeagueDetailsActivity : AppCompatActivity() {
     }
 
     private fun setupViewPagerAndTabs() {
-        val pagerAdapter = ViewPagerAdapter(this, intent.getIntExtra("leagueId", -1))
+        val sportTypeString = intent.getStringExtra("SPORT_TYPE") ?: SportType.FOOTBALL.apiName
+        val sportType = SportType.fromApiName(sportTypeString) ?: SportType.FOOTBALL
+        val pagerAdapter = ViewPagerAdapter(this, intent.getIntExtra("leagueId", -1), sportType)
         binding.viewPager.adapter = pagerAdapter
 
         TabLayoutMediator(binding.tabLayout, binding.viewPager) { tab, position ->
@@ -74,6 +84,7 @@ class LeagueDetailsActivity : AppCompatActivity() {
             }
         }.attach()
     }
+
 
     private fun updateToolbar(details: TournamentEntity) {
         val leagueName: TextView = binding.toolbar.root.findViewById(R.id.leagueName)
@@ -105,7 +116,8 @@ class LeagueDetailsActivity : AppCompatActivity() {
 
     private inner class ViewPagerAdapter(
         fa: FragmentActivity,
-        private val tournamentId: Int
+        private val tournamentId: Int,
+        private val sportType: SportType
     ) : FragmentStateAdapter(fa) {
         override fun getItemCount(): Int = 2
 
@@ -119,6 +131,8 @@ class LeagueDetailsActivity : AppCompatActivity() {
                 1 -> StandingsFragment().apply {
                     arguments = Bundle().apply {
                         putInt("TOURNAMENT_ID", tournamentId)
+                        Log.d("LeagueDetailsActivity", "sportType: $sportType")
+                        putString("SPORT_TYPE", sportType.apiName)
                     }
                 }
                 else -> throw IllegalStateException("Unexpected position $position")

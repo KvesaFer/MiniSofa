@@ -10,26 +10,27 @@
     android:focusable="true">
 
     <TextView
+        style="@style/Micro"
         android:id="@+id/tab_day"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="SAT"
-        android:textColor="@android:color/white"
-        android:textSize="12sp" />
+        android:text="@string/sat"
+        android:textColor="@color/surface_surface_1"
+        />
 
     <TextView
+        style="@style/Micro"
         android:id="@+id/tab_date"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="10.12."
-        android:textColor="@android:color/white"
-        android:textSize="12sp" />
+        android:text="@string/_10_12"
+        android:textColor="@color/surface_surface_1" />
 
     <View
         android:id="@+id/selection_indicator"
         android:layout_width="match_parent"
         android:layout_height="2dp"
         android:layout_marginTop="4dp"
-        android:background="@android:color/white"
+        android:background="@color/surface_surface_1"
         android:visibility="gone" />
 </LinearLayout>

@@ -1,5 +1,6 @@
 package com.sofascore.minisofa.ui.adapters
 
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -10,6 +11,7 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
+import com.sofascore.minisofa.EventDetailsActivity
 import com.sofascore.minisofa.R
 import com.sofascore.minisofa.data.local.entity.EventInfo
 import com.sofascore.minisofa.databinding.ItemEventBinding
@@ -77,6 +79,14 @@ class MatchesAdapter : ListAdapter<Any, RecyclerView.ViewHolder>(DiffCallback())
             binding.awayTeamScore.setTextColor(ContextCompat.getColor(context, R.color.on_surface_on_surface_lv_1))
             setScoreColors(event)
             setMatchStatus(event)
+
+            binding.root.setOnClickListener {
+                val intent = Intent(context, EventDetailsActivity::class.java).apply {
+                    putExtra("EVENT_ID", event.id)
+                }
+                context.startActivity(intent)
+            }
+
             binding.executePendingBindings()
         }
 

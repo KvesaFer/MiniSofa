@@ -1,6 +1,7 @@
 package com.sofascore.minisofa.data.repository
 
 import android.util.Log
+import com.sofascore.minisofa.data.event_models.MatchDetails
 import com.sofascore.minisofa.data.event_models.toEventInfo
 import com.sofascore.minisofa.data.local.dao.CountryDao
 import com.sofascore.minisofa.data.local.dao.EventDao
@@ -10,7 +11,6 @@ import com.sofascore.minisofa.data.local.entity.EventInfo
 import com.sofascore.minisofa.data.local.entity.TournamentEntity
 import com.sofascore.minisofa.data.remote.ApiService
 import com.sofascore.minisofa.utils.SportType
-import java.util.Locale
 import javax.inject.Inject
 
 class EventRepository @Inject constructor(
@@ -98,6 +98,27 @@ class EventRepository @Inject constructor(
         tournamentDao.insertAll(leagues_db)
         return tournamentDao.getTournamentsBySport(sportType.displayName)
     }
+
+
+    suspend fun getMatchDetails(eventId: Int): MatchDetails? {
+        val event = apiService.getEventByEventId(eventId).toEventInfo()
+        val tournament = event.tournamentId?.let { tournamentDao.getTournamentById(it) }
+        val country = tournament?.let { countryDao.getCountryById(it.countryId) }
+        val incidents = apiService.getEventIncidents(eventId)
+        incidents.forEach { incident ->
+            incident.sport = event.sport
+        }
+
+        return country?.let {
+            MatchDetails(
+                event = event,
+                country = it,
+                tournament = tournament,
+                incidents = incidents
+            )
+        }
+    }
+
 
     suspend fun getEventsForTournament(tournamentId: Int, span: String, page: Int): List<EventInfo> {
         return try {

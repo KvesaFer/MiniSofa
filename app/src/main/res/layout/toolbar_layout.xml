@@ -16,11 +16,13 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
+            android:contentDescription="Sofa Logo"
             android:layout_marginVertical="14dp"
             android:src="@drawable/sofascore_lockup"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent" />
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:tint="@color/surface_surface_1" />
 
         <ImageView
             android:id="@+id/action_leagues"
@@ -35,20 +37,22 @@
             app:layout_constraintBottom_toBottomOf="@id/logo"
             android:padding="12dp"
             android:layout_marginTop="12dp"
-            android:layout_marginBottom="12dp"/>
+            android:layout_marginBottom="12dp"
+            app:tint="@color/surface_surface_1"/>
 
         <ImageView
             android:id="@+id/action_settings"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/ic_settings"
-            android:contentDescription="Settings"
+            android:contentDescription="@string/settings"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="@id/logo"
             app:layout_constraintBottom_toBottomOf="@id/logo"
             android:padding="12dp"
             android:layout_marginTop="12dp"
-            android:layout_marginBottom="12dp"/>
+            android:layout_marginBottom="12dp"
+            app:tint="@color/surface_surface_1" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

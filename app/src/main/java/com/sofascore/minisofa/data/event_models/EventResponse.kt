@@ -1,7 +1,9 @@
 package com.sofascore.minisofa.data.event_models
 
+import com.google.gson.annotations.SerializedName
+import com.sofascore.minisofa.data.local.entity.CountryEntity
 import com.sofascore.minisofa.data.local.entity.EventInfo
-
+import com.sofascore.minisofa.data.local.entity.TournamentEntity
 
 data class EventApiResponse(
     val id: Int,
@@ -11,13 +13,50 @@ data class EventApiResponse(
     val awayTeam: Team,
     val status: String,
     val startDate: String,
-    val homeScore: Score,
-    val awayScore: Score,
+    val homeScore: Score?,
+    val awayScore: Score?,
     val winnerCode: String?,
     val round: Int,
     val startTime: String,
     var tournamentLogo: String,
     var tournamentCountry: String
+)
+
+data class
+Player(
+    val id: Int,
+    val name: String,
+    val slug: String,
+    val country: Country,
+    val position: String
+)
+
+data class PlayerDetails(
+    val id: Int,
+    val name: String,
+    val slug: String,
+    val sport: Sport,
+    val team: Team,
+    val country: Country,
+    val position: String,
+    val dateOfBirth: String,
+    var image: String,
+    var clubImage: String
+)
+
+data class Incident(
+    var sport: String,
+    val player: Player?,
+    val scoringTeam: String?,
+    val homeScore: Int?,
+    val awayScore: Int?,
+    val goalType: String?,
+    val id: Int,
+    val time: Int,
+    val type: String,
+    val teamSide: String?,
+    val color: String?,
+    val text: String?
 )
 
 data class StandingsResponse(
@@ -36,7 +75,31 @@ data class StandingRow(
     val played: Int,
     val wins: Int,
     val draws: Int,
-    val losses: Int
+    val losses: Int,
+    val percentage: Double
+)
+
+data class TeamEvent(
+    val id: Int,
+    val slug: String,
+    val tournament: Tournament,
+    val homeTeam: Team,
+    val awayTeam: Team,
+    val status: String,
+    val startDate: String,
+    val homeScore: ScoreStandingsResponse,
+    val awayScore: ScoreStandingsResponse,
+    val winnerCode: String,
+    val round: Int
+)
+
+data class ScoreStandingsResponse(
+    val total: Int,
+    @SerializedName("period1") val period1: Int,
+    @SerializedName("period2") val period2: Int,
+    @SerializedName("period3") val period3: Int,
+    @SerializedName("period4") val period4: Int,
+    val overtime: Int
 )
 
 data class Tournament(
@@ -69,10 +132,6 @@ data class Score(
     val period2: Int? = null
 )
 
-data class EventResponse(
-    val events: List<EventApiResponse>
-)
-
 data class TeamStanding(
     val id: Int,
     var position:Int = 0,
@@ -81,8 +140,19 @@ data class TeamStanding(
     val won: Int,
     val draw: Int,
     val lost: Int,
-    val goals: String,
-    val points: Int
+    val goals: String?,
+    val points: Int,
+    val percentage: Double?,
+    val diff: Int?,
+    var streak: Int?,
+    var gb: Double? = null
+)
+
+data class MatchDetails(
+    val event: EventInfo,
+    val country: CountryEntity,
+    val tournament: TournamentEntity,
+    val incidents: List<Incident>?
 )
 
 
@@ -92,8 +162,8 @@ fun EventApiResponse.toEventInfo(): EventInfo {
         date = this.startDate.split("T")[0],
         homeName = this.homeTeam.name,
         awayName = this.awayTeam.name,
-        homeScore = this.homeScore.total ?: 0,
-        awayScore = this.awayScore.total ?: 0,
+        homeScore = this.homeScore?.total ?: 0,
+        awayScore = this.awayScore?.total ?: 0,
         status = this.status,
         sport = this.tournament.sport.name,
         tournamentId = this.tournament.id,

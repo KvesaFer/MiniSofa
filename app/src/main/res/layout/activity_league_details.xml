@@ -20,11 +20,8 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@id/toolbar"
-            app:tabIndicatorColor="@color/white"
+            app:tabIndicatorColor="@color/surface_surface_1"
             app:tabIndicatorHeight="4dp"
-            app:tabIndicatorFullWidth="false"
-            app:tabPaddingStart="8dp"
-            app:tabPaddingEnd="8dp"
             android:background="@color/color_primary_default"
             app:tabTextColor="@color/surface_surface_1"/>
 

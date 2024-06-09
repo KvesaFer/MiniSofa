@@ -1,0 +1,275 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <include
+        android:id="@+id/toolbar_settings"
+        layout="@layout/toolbar_leagues_layout"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        style="@style/Assistive"
+        android:id="@+id/theme_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginHorizontal="16dp"
+        android:textColor="@color/color_primary_default"
+        android:text="@string/theme"
+        app:layout_constraintTop_toBottomOf="@id/toolbar_settings"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <RadioButton
+        android:id="@+id/light_theme_radio"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:checked="true"
+        app:layout_constraintTop_toTopOf="@id/tw_light"
+        app:layout_constraintBottom_toBottomOf="@id/tw_light"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginEnd="16dp"
+        android:buttonTint="@color/color_primary_default"
+        android:textColor="@android:color/black"/>
+
+    <RadioButton
+        android:id="@+id/dark_theme_radio"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintTop_toTopOf="@id/tw_dark"
+        app:layout_constraintBottom_toBottomOf="@id/tw_dark"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:buttonTint="@color/color_primary_default"
+        android:textColor="@android:color/black"/>
+
+    <TextView
+        style="@style/BodyParagraph"
+        android:id="@+id/tw_light"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="22dp"
+        android:text="@string/light"
+        android:textColor="@color/on_surface_on_surface_lv_1"
+        app:layout_constraintTop_toBottomOf="@id/theme_label"
+        app:layout_constraintStart_toStartOf="@id/theme_label" />
+
+    <TextView
+        style="@style/BodyParagraph"
+        android:id="@+id/tw_dark"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/dark"
+        android:layout_marginTop="28dp"
+        android:textColor="@color/on_surface_on_surface_lv_1"
+        app:layout_constraintTop_toBottomOf="@id/tw_light"
+        app:layout_constraintStart_toStartOf="@id/theme_label"
+        />
+
+    <View
+        android:id="@+id/separator_after_theme"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="29dp"
+        app:layout_constraintTop_toBottomOf="@id/tw_dark"
+        android:background="@color/on_surface_on_surface_lv_4"/>
+
+    <TextView
+        style="@style/Assistive"
+        android:id="@+id/date_format"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginHorizontal="16dp"
+        android:textColor="@color/color_primary_default"
+        android:text="@string/date_format"
+        android:textSize="12sp"
+        app:layout_constraintTop_toBottomOf="@id/separator_after_theme"
+        app:layout_constraintStart_toStartOf="parent" />
+
+
+    <RadioButton
+        android:id="@+id/eu_date_radio"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:checked="true"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/tw_eu_date"
+        app:layout_constraintBottom_toBottomOf="@id/tw_eu_date"
+        android:layout_marginEnd="16dp"
+        android:buttonTint="@color/color_primary_default"
+        android:textColor="@android:color/black"/>
+
+    <TextView
+        style="@style/BodyParagraph"
+        android:id="@+id/tw_eu_date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/dd_mm_yyyy"
+        android:textColor="@color/on_surface_on_surface_lv_1"
+        android:layout_marginTop="22dp"
+        app:layout_constraintStart_toStartOf="@id/date_format"
+        app:layout_constraintTop_toBottomOf="@id/date_format" />
+
+    <RadioButton
+        android:id="@+id/us_date_radio"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/eu_date_radio"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginEnd="16dp"
+        android:buttonTint="@color/color_primary_default"
+        android:textColor="@android:color/black"/>
+
+    <TextView
+        style="@style/BodyParagraph"
+        android:id="@+id/tw_us_date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="@id/date_format"
+        android:text="@string/mm_dd_yyyy"
+        android:layout_marginTop="28dp"
+        android:textColor="@color/on_surface_on_surface_lv_1"
+        app:layout_constraintTop_toTopOf="@id/us_date_radio"
+        app:layout_constraintBottom_toBottomOf="@id/us_date_radio"/>
+
+    <View
+        android:id="@+id/separator_after_date"
+        android:layout_width="match_parent"
+        android:layout_marginTop="29dp"
+        android:layout_height="1dp"
+        app:layout_constraintTop_toBottomOf="@id/tw_us_date"
+        android:background="@color/on_surface_on_surface_lv_4"/>
+
+    <TextView
+        style="@style/Headline1"
+        android:id="@+id/about_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="@string/about"
+        android:textColor="@color/on_surface_on_surface_lv_1"
+        app:layout_constraintTop_toBottomOf="@id/separator_after_date"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginStart="16dp" />
+
+    <TextView
+        style="@style/Headline2"
+        android:id="@+id/about_details"
+        android:textColor="@color/on_surface_on_surface_lv_1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="@string/sofascore_android_academy"
+        app:layout_constraintTop_toBottomOf="@id/about_label"
+        app:layout_constraintStart_toStartOf="@id/about_label"/>
+
+    <TextView
+        style="@style/BodyParagraph"
+        android:id="@+id/class2024"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="2dp"
+        android:textColor="@color/on_surface_on_surface_lv_1"
+        android:text="@string/class_2024"
+        app:layout_constraintTop_toBottomOf="@id/about_details"
+        app:layout_constraintStart_toStartOf="@id/about_details"/>
+
+    <View
+        android:id="@+id/separator_after_about"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="23dp"
+        android:layout_marginHorizontal="16dp"
+        app:layout_constraintTop_toBottomOf="@id/class2024"
+        android:background="@color/on_surface_on_surface_lv_4"/>
+
+    <TextView
+        style="@style/Assistive"
+        android:id="@+id/app_name_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginStart="16dp"
+        android:text="@string/tw_app_name"
+        android:textColor="@color/on_surface_on_surface_lv_2"
+        app:layout_constraintTop_toBottomOf="@id/separator_after_about"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        style="@style/BodyParagraph"
+        android:id="@+id/app_name_value"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/mini_sofascore_app"
+        android:textColor="@color/on_surface_on_surface_lv_1"
+        app:layout_constraintTop_toBottomOf="@id/app_name_label"
+        app:layout_constraintStart_toStartOf="@id/app_name_label" />
+
+    <TextView
+        style="@style/Assistive"
+        android:id="@+id/api_credit_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="@string/api_credit"
+        android:textColor="@color/on_surface_on_surface_lv_2"
+        app:layout_constraintTop_toBottomOf="@id/app_name_value"
+        app:layout_constraintStart_toStartOf="@id/app_name_label" />
+
+    <TextView
+        style="@style/BodyParagraph"
+        android:id="@+id/api_credit_value"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/sofascore"
+        android:textColor="@color/on_surface_on_surface_lv_1"
+        app:layout_constraintTop_toBottomOf="@id/api_credit_label"
+        app:layout_constraintStart_toStartOf="@id/app_name_label" />
+
+    <TextView
+        style="@style/Assistive"
+        android:id="@+id/developer_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="@string/developer"
+        android:textColor="@color/on_surface_on_surface_lv_2"
+        app:layout_constraintTop_toBottomOf="@id/api_credit_value"
+        app:layout_constraintStart_toStartOf="@id/app_name_label" />
+
+    <TextView
+        style="@style/BodyParagraph"
+        android:id="@+id/developer_value"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/marin_kvesi"
+        android:textColor="@color/on_surface_on_surface_lv_1"
+        app:layout_constraintTop_toBottomOf="@id/developer_label"
+        app:layout_constraintStart_toStartOf="@id/app_name_label" />
+
+    <View
+        android:id="@+id/separator_after_credits"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="23dp"
+        android:layout_marginHorizontal="16dp"
+        app:layout_constraintTop_toBottomOf="@id/developer_value"
+        android:background="@color/on_surface_on_surface_lv_4"/>
+
+    <ImageView
+        android:id="@+id/sofascore_logo"
+        android:layout_width="132dp"
+        android:layout_height="20dp"
+        android:contentDescription="@string/sofascore"
+        android:src="@drawable/sofascore_lockup_blue"
+        android:layout_marginTop="16dp"
+        app:layout_constraintTop_toBottomOf="@id/separator_after_credits"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

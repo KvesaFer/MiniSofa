@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.Toolbar
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/toolbarPlayerDetails"
+    android:layout_width="match_parent"
+    android:layout_height="120dp"
+    android:contentInsetLeft="0dp"
+    android:contentInsetStart="0dp"
+    android:contentInsetRight="0dp"
+    android:contentInsetEnd="0dp"
+    app:contentInsetLeft="0dp"
+    app:contentInsetStart="0dp"
+    app:contentInsetRight="0dp"
+    app:contentInsetEnd="0dp"
+    android:background="@color/color_primary_default"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/backButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:src="@drawable/ic_back_arrow"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:padding="12dp"
+            app:tint="@color/surface_surface_1"
+            />
+
+        <ImageView
+            android:id="@+id/playerLogo"
+            android:layout_width="56dp"
+            android:layout_height="56dp"
+            android:padding="8dp"
+            android:layout_marginHorizontal="16dp"
+            android:layout_marginBottom="16dp"
+            android:background="@drawable/rounded_background"
+            app:layout_constraintStart_toStartOf="@id/backButton"
+            app:layout_constraintTop_toBottomOf="@id/backButton"
+            tools:src="@drawable/clubs_svgrepo_com"/>
+        
+        <TextView
+            android:id="@+id/playerName"
+            style="@style/Headline1"
+            android:layout_width="wrap_content"
+            android:layout_height="28dp"
+            tools:text="Luka Modrić"
+            android:layout_marginStart="16dp"
+            app:layout_constraintStart_toEndOf="@id/playerLogo"
+            app:layout_constraintTop_toTopOf="@id/playerLogo"
+            app:layout_constraintBottom_toBottomOf="@id/playerLogo"
+            android:textColor="@color/surface_surface_1"
+            />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.appcompat.widget.Toolbar>

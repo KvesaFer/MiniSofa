@@ -177,6 +177,7 @@ class CountryCodes {
         "Pakistan" to "PK",
         "Poland" to "PL",
         "Saint Pierre And Miquelon" to "PM",
+        "South Africa" to "ZA",
         "Pitcairn Island" to "PN",
         "Puerto Rico" to "PR",
         "Portugal" to "PT",

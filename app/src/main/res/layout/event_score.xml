@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/gameScore"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" >
+
+        <TextView
+            style="@style/Headline1Desktop"
+            android:id="@+id/homeTeamScore"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_marginTop="16dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:textColor="@color/specific_live"
+            tools:text="0"
+            />
+
+        <TextView
+            style="@style/Headline1Desktop"
+            android:id="@+id/scoreSeparator"
+            android:layout_width="16dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toEndOf="@id/homeTeamScore"
+            app:layout_constraintTop_toTopOf="@id/homeTeamScore"
+            app:layout_constraintBottom_toBottomOf="@id/homeTeamScore"
+            android:gravity="center_horizontal"
+            android:textColor="@color/specific_live"
+            android:text="@string/separator"
+            />
+
+        <TextView
+            style="@style/Headline1Desktop"
+            android:id="@+id/awayTeamScore"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            app:layout_constraintStart_toEndOf="@id/scoreSeparator"
+            app:layout_constraintTop_toTopOf="@id/homeTeamScore"
+            app:layout_constraintBottom_toBottomOf="@id/homeTeamScore"
+            android:textColor="@color/specific_live"
+            android:text="@string/_1"
+            />
+
+        <TextView
+            android:id="@+id/minutesPlayed"
+            style="@style/Micro"
+            android:layout_width="match_parent"
+            android:layout_height="16dp"
+            android:textColor="@color/specific_live"
+            tools:text="36'"
+            app:layout_constraintTop_toBottomOf="@id/scoreSeparator"
+            app:layout_constraintStart_toStartOf="@id/scoreSeparator"
+            app:layout_constraintEnd_toEndOf="@id/scoreSeparator"
+            android:gravity="center_horizontal"
+            />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

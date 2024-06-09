@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <include
+        android:id="@+id/header_player_details"
+        layout="@layout/toolbar_player_details" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/clubInfo"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/header_player_details"
+        android:background="@color/surface_surface_1">
+
+        <ImageView
+            android:id="@+id/clubLogo"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="16dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            tools:src="@drawable/clubs_svgrepo_com" />
+
+        <TextView
+            android:id="@+id/clubName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            app:layout_constraintTop_toTopOf="@id/clubLogo"
+            app:layout_constraintBottom_toBottomOf="@id/clubLogo"
+            app:layout_constraintStart_toEndOf="@id/clubLogo"
+            android:textColor="@color/on_surface_on_surface_lv_1"
+            tools:text="Real Madrid" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/playerNationalityInfo"
+        android:layout_width="0dp"
+        android:layout_height="56dp"
+        app:layout_constraintTop_toBottomOf="@id/clubInfo"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/positionInfo"
+        android:background="@color/color_secondary_highlight"
+        android:layout_marginTop="4dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp">
+
+        <TextView
+            style="@style/Assistive"
+            android:id="@+id/twNationality"
+            android:layout_width="wrap_content"
+            android:layout_height="16dp"
+            android:layout_marginTop="8dp"
+            android:textColor="@color/on_surface_on_surface_lv_2"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:text="@string/nationality"/>
+
+        <ImageView
+            android:id="@+id/countryFlag"
+            android:layout_width="16dp"
+            android:layout_height="16dp"
+            app:layout_constraintTop_toBottomOf="@id/twNationality"
+            app:layout_constraintStart_toStartOf="@id/twNationality"
+            tools:src="@drawable/clubs_svgrepo_com" />
+
+        <TextView
+            android:id="@+id/countryName"
+            style="@style/Headline3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:textColor="@color/on_surface_on_surface_lv_1"
+            app:layout_constraintStart_toEndOf="@id/countryFlag"
+            app:layout_constraintTop_toBottomOf="@id/twNationality"
+            app:layout_constraintBottom_toBottomOf="@id/countryFlag"
+            android:gravity="center"
+            tools:text="Cro" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/positionInfo"
+        android:layout_width="0dp"
+        android:layout_height="56dp"
+        android:layout_marginStart="8dp"
+        android:background="@color/color_secondary_highlight"
+        app:layout_constraintTop_toTopOf="@id/playerNationalityInfo"
+        app:layout_constraintBottom_toBottomOf="@id/playerNationalityInfo"
+        app:layout_constraintStart_toEndOf="@id/playerNationalityInfo"
+        app:layout_constraintEnd_toStartOf="@+id/birthdayInfo"
+        android:layout_marginEnd="8dp">
+
+        <TextView
+            style="@style/Assistive"
+            android:id="@+id/twExplanation"
+            android:layout_width="wrap_content"
+            android:layout_height="16dp"
+            android:layout_marginTop="8dp"
+            android:textColor="@color/on_surface_on_surface_lv_2"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:text="@string/position"/>
+
+        <TextView
+            android:id="@+id/playerPosition"
+            style="@style/Headline3"
+            android:layout_width="wrap_content"
+            android:layout_height="16dp"
+            android:layout_marginStart="4dp"
+            android:layout_marginTop="4dp"
+            android:textColor="@color/on_surface_on_surface_lv_1"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/twExplanation"
+            tools:text="Midfield" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/birthdayInfo"
+        android:layout_width="0dp"
+        android:layout_height="56dp"
+        android:layout_marginStart="8dp"
+        android:background="@color/color_secondary_highlight"
+        app:layout_constraintTop_toTopOf="@id/playerNationalityInfo"
+        app:layout_constraintBottom_toBottomOf="@id/playerNationalityInfo"
+        app:layout_constraintStart_toEndOf="@id/positionInfo"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginEnd="8dp">
+
+        <TextView
+            style="@style/Assistive"
+            android:id="@+id/twBirthdayDate"
+            android:layout_width="wrap_content"
+            android:layout_height="16dp"
+            android:layout_marginTop="8dp"
+            android:textColor="@color/on_surface_on_surface_lv_2"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            tools:text="9 Sep 1985"/>
+
+        <TextView
+            style="@style/Headline3"
+            android:id="@+id/numberOfYears"
+            android:layout_width="wrap_content"
+            android:layout_height="16dp"
+            android:layout_marginStart="4dp"
+            android:layout_marginTop="4dp"
+            android:textColor="@color/on_surface_on_surface_lv_1"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/twBirthdayDate"
+            tools:text="37 Yrs" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/separatorMatches"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_marginTop="12dp"
+        app:layout_constraintTop_toBottomOf="@id/playerNationalityInfo"
+        android:background="@color/surface_surface_0">
+
+        <TextView
+            android:id="@+id/roundHeader"
+            style="@style/Assistive"
+            android:layout_width="wrap_content"
+            android:layout_height="16dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginBottom="8dp"
+            android:textColor="@color/on_surface_on_surface_lv_1"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:text="@string/matches"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/playerMatches"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintTop_toBottomOf="@id/separatorMatches"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>

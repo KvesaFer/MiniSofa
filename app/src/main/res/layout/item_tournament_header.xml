@@ -4,8 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="360dp"
-        android:layout_height="56dp" >
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:background="@color/surface_surface_1">
 
         <View
             android:id="@+id/hline"
