@@ -17,11 +17,6 @@ interface ApiService {
         @Path("date") date: String
     ): List<EventApiResponse>
 
-    @GET("team/{id}/image")
-    suspend fun getTeamLogo(
-        @Path("id") teamId: Int
-    ): String
-
 
     @GET("sport/{slug}/tournaments")
     suspend fun getTournamentsBySport(
@@ -61,6 +56,4 @@ interface ApiService {
     @GET("player/{id}")
     suspend fun getPlayerDetails(@Path("id") id: Int): PlayerDetails
 
-    @GET("player/{id}/image")
-    suspend fun getPlayerImage(@Path("id") id: Int): String
 }
